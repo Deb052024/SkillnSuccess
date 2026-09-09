@@ -1,13 +1,19 @@
 const crypto = require('crypto');
 const Razorpay = require('razorpay');
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+let razorpay = null;
+function getClient() {
+  if (!razorpay) {
+    razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+  }
+  return razorpay;
+}
 
 async function createOrder({ amount, currency, receipt, notes }) {
-  return razorpay.orders.create({ amount, currency, receipt, notes });
+  return getClient().orders.create({ amount, currency, receipt, notes });
 }
 
 // Verifies the signature returned to the browser's checkout success handler.
@@ -30,4 +36,4 @@ function verifyWebhookSignature({ rawBody, signature }) {
   return expected === signature;
 }
 
-module.exports = { razorpay, createOrder, verifyPaymentSignature, verifyWebhookSignature };
+module.exports = { createOrder, verifyPaymentSignature, verifyWebhookSignature };
