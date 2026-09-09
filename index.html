@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skill N Success — Turn what you know into what's next</title>
+<meta name="description" content="Discover your Skill N Success Score, close your skill gaps, and unlock ATS-ready CVs, role matches and a 30-day action plan." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  :root{
+    --ink:#12172B;
+    --ink-soft:#4B5163;
+    --paper:#F6F3EC;
+    --paper-2:#EFEAE0;
+    --card:#FFFFFF;
+    --gold:#C79A4B;
+    --gold-deep:#A67B33;
+    --sage:#3F6B52;
+    --sage-soft:#DCE7DF;
+    --rust:#A8583A;
+    --line:rgba(18,23,43,0.12);
+    --line-soft:rgba(18,23,43,0.07);
+    --radius:18px;
+    --shadow: 0 1px 2px rgba(18,23,43,.04), 0 12px 32px -12px rgba(18,23,43,.18);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Manrope',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{ font-family:'Fraunces',serif; font-weight:600; margin:0; letter-spacing:-.01em; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  a{ color:inherit; }
+  img,svg{ display:block; max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  section{ padding:104px 0; position:relative; }
+  @media (max-width:720px){ section{ padding:64px 0; } .wrap{padding:0 18px;} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--sage); font-weight:600; margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:16px; height:1px; background:var(--sage); display:inline-block; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,243,236,.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navbar{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:var(--maxw); margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:19px; }
+  .brand .mark{ width:30px; height:30px; border-radius:50%; background:conic-gradient(var(--sage) 0deg 250deg, var(--gold) 250deg 360deg); position:relative; flex:none; }
+  .brand .mark::after{ content:""; position:absolute; inset:6px; background:var(--paper); border-radius:50%; }
+  .navlinks{ display:flex; gap:28px; font-size:14.5px; font-weight:600; color:var(--ink-soft); }
+  .navlinks a:hover{ color:var(--ink); }
+  .navcta{ display:flex; align-items:center; gap:14px; }
+  @media (max-width:900px){ .navlinks{ display:none; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; justify-content:center;
+    padding:13px 22px; border-radius:100px; font-weight:700; font-size:14.5px;
+    border:1px solid transparent; cursor:pointer; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ box-shadow:0 8px 20px -6px rgba(18,23,43,.45); }
+  .btn-gold{ background:var(--gold); color:#241B08; }
+  .btn-gold:hover{ box-shadow:0 8px 20px -6px rgba(199,154,75,.6); }
+  .btn-ghost{ background:transparent; border-color:var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-sm{ padding:9px 16px; font-size:13px; }
+  .btn[disabled]{ opacity:.45; cursor:not-allowed; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding-top:88px; padding-bottom:60px; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+  .hero h1{ font-size:clamp(34px,5.2vw,58px); line-height:1.04; }
+  .hero h1 em{ font-style:normal; color:var(--sage); }
+  .hero p.lead{ font-size:18px; color:var(--ink-soft); max-width:520px; margin:22px 0 32px; }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-note{ margin-top:18px; font-size:13px; color:var(--ink-soft); }
+  .trust-row{ display:flex; gap:26px; margin-top:44px; flex-wrap:wrap; }
+  .trust-row div{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); }
+  .trust-row b{ display:block; font-family:'Fraunces',serif; font-size:22px; color:var(--ink); }
+
+  .dial-hero{ position:relative; display:flex; align-items:center; justify-content:center; }
+  .dial-card{
+    background:var(--card); border-radius:24px; box-shadow:var(--shadow); border:1px solid var(--line-soft);
+    padding:34px; width:100%; max-width:380px; text-align:center;
+  }
+  .dial-card .cap{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); }
+  .dial-svg{ margin:18px auto; }
+  .dial-score{ font-family:'Fraunces',serif; font-size:44px; font-weight:600; }
+  .dial-score small{ font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink-soft); font-weight:400; }
+  .dial-label{ color:var(--ink-soft); font-size:13px; margin-top:4px; }
+
+  /* ---------- JOURNEY ---------- */
+  .journey-row{ display:flex; gap:0; overflow-x:auto; margin-top:46px; padding-bottom:10px; }
+  .journey-step{ flex:1 1 0; min-width:170px; padding:0 20px; position:relative; }
+  .journey-step:not(:last-child)::after{
+    content:""; position:absolute; top:15px; right:0; width:100%; height:1px; background:var(--line);
+  }
+  .journey-num{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--gold-deep); font-weight:600; }
+  .journey-title{ font-family:'Fraunces',serif; font-size:19px; margin:10px 0 8px; }
+  .journey-desc{ font-size:14px; color:var(--ink-soft); }
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-head{ max-width:640px; margin-bottom:44px; }
+  .sec-head h2{ font-size:clamp(26px,3.4vw,38px); }
+  .sec-head p{ color:var(--ink-soft); font-size:16px; margin-top:14px; }
+  .sec-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+  /* ---------- ASSESSMENT (GAME) ---------- */
+  .quiz-panel{
+    background:var(--ink); color:var(--paper); border-radius:26px; padding:48px; position:relative; overflow:hidden;
+  }
+  .quiz-panel::before{
+    content:""; position:absolute; inset:0; opacity:.5;
+    background:radial-gradient(circle at 85% 15%, rgba(199,154,75,.25), transparent 45%),
+               radial-gradient(circle at 10% 90%, rgba(63,107,82,.35), transparent 40%);
+    pointer-events:none;
+  }
+  .quiz-inner{ position:relative; z-index:1; }
+  .quiz-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:26px; gap:16px; flex-wrap:wrap;}
+  .quiz-progress-track{ height:6px; background:rgba(246,243,236,.16); border-radius:6px; flex:1; margin:0 18px; overflow:hidden; }
+  .quiz-progress-fill{ height:100%; width:0%; background:linear-gradient(90deg,var(--sage),var(--gold)); transition:width .4s ease; }
+  .quiz-step-label{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:rgba(246,243,236,.7); white-space:nowrap;}
+  .quiz-q{ font-family:'Fraunces',serif; font-size:clamp(22px,3vw,30px); margin-bottom:26px; max-width:640px; }
+  .quiz-options{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:640px){ .quiz-options{ grid-template-columns:1fr; } }
+  .quiz-opt{
+    text-align:left; padding:18px 20px; border-radius:14px; border:1px solid rgba(246,243,236,.18);
+    background:rgba(246,243,236,.04); color:var(--paper); cursor:pointer; font-size:15px; font-weight:600;
+    transition:all .15s ease;
+  }
+  .quiz-opt:hover{ background:rgba(246,243,236,.12); border-color:rgba(246,243,236,.4); transform:translateY(-2px); }
+  .quiz-opt.picked{ background:var(--gold); color:#241B08; border-color:var(--gold); }
+  .quiz-back{ margin-top:24px; background:none; border:none; color:rgba(246,243,236,.6); font-size:13px; cursor:pointer; font-weight:600;}
+  .quiz-back:hover{ color:var(--paper); }
+
+  .quiz-start{ text-align:center; }
+  .quiz-start .btn{ margin-top:8px; }
+
+  .reveal{ display:none; }
+  .reveal.show{ display:block; animation:fadeUp .5s ease; }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;} }
+  .reveal-grid{ display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center; }
+  @media (max-width:760px){ .reveal-grid{ grid-template-columns:1fr; } }
+  .coupon{
+    margin-top:22px; border:1px dashed rgba(199,154,75,.6); border-radius:14px; padding:16px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; background:rgba(199,154,75,.08); flex-wrap:wrap;
+  }
+  .coupon code{ font-family:'IBM Plex Mono',monospace; font-size:18px; letter-spacing:.06em; color:var(--gold); font-weight:600; }
+  .coupon span{ font-size:13px; color:rgba(246,243,236,.72); }
+
+  /* ---------- DASHBOARD ---------- */
+  .dim-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  @media (max-width:940px){ .dim-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .dim-grid{ grid-template-columns:1fr;} }
+  .dim-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:18px; padding:22px 18px; text-align:center; box-shadow:var(--shadow); }
+  .dim-card .mini-dial{ margin:0 auto 12px; }
+  .dim-card h4{ font-size:14.5px; font-family:'Manrope',sans-serif; font-weight:700; }
+  .dim-card .val{ font-family:'IBM Plex Mono',monospace; font-size:22px; margin-top:2px; }
+  .dim-card p{ font-size:12.5px; color:var(--ink-soft); margin-top:8px; min-height:32px; }
+  .locked-note{ text-align:center; color:var(--ink-soft); font-size:14px; padding:40px 20px; border:1px dashed var(--line); border-radius:18px; }
+
+  /* ---------- SKILL BOUTIQUE ---------- */
+  .skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .skill-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .skill-grid{ grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--card); border:1px solid var(--line-soft); border-radius:18px; padding:26px; cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease; box-shadow:var(--shadow);
+  }
+  .skill-card:hover{ transform:translateY(-4px); }
+  .skill-card .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--sage); text-transform:uppercase; letter-spacing:.08em; }
+  .skill-card h3{ font-size:20px; margin:10px 0 8px; }
+  .skill-card p{ font-size:13.5px; color:var(--ink-soft); }
+  .skill-card .open{ margin-top:16px; font-size:13px; font-weight:700; color:var(--ink); display:flex; align-items:center; gap:6px; }
+
+  /* modal */
+  .modal-back{ position:fixed; inset:0; background:rgba(18,23,43,.55); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; z-index:100; padding:20px; }
+  .modal-back.show{ display:flex; }
+  .modal{ background:var(--card); border-radius:22px; max-width:640px; width:100%; max-height:88vh; overflow-y:auto; padding:34px; position:relative; box-shadow:0 30px 60px -20px rgba(18,23,43,.4); }
+  .modal-close{ position:absolute; top:20px; right:20px; background:var(--paper-2); border:none; width:34px; height:34px; border-radius:50%; cursor:pointer; font-size:16px; }
+  .gap-row{ margin:20px 0; }
+  .gap-row .lbl{ display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:6px; }
+  .bar-track{ height:10px; background:var(--paper-2); border-radius:8px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:8px; }
+  .bar-fill.current{ background:var(--ink-soft); }
+  .bar-fill.target{ background:var(--sage); }
+  .src-list{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+  .src-list a{ display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border:1px solid var(--line); border-radius:12px; text-decoration:none; font-size:13.5px; font-weight:600; }
+  .src-list a:hover{ border-color:var(--ink); }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .chip{ background:var(--paper-2); font-size:12px; padding:6px 12px; border-radius:100px; font-weight:600; color:var(--ink-soft); }
+
+  /* ---------- JOBS ---------- */
+  .job-list{ display:flex; flex-direction:column; gap:12px; }
+  .job-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; background:var(--card); border:1px solid var(--line-soft); border-radius:16px; padding:20px 24px; flex-wrap:wrap; box-shadow:var(--shadow); }
+  .job-role{ font-family:'Fraunces',serif; font-size:18px; }
+  .job-meta{ font-size:13px; color:var(--ink-soft); margin-top:4px; }
+  .job-fit{ font-family:'IBM Plex Mono',monospace; font-size:12px; background:var(--sage-soft); color:var(--sage); padding:4px 10px; border-radius:100px; font-weight:700; }
+
+  /* ---------- CV STUDIO ---------- */
+  .cv-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  @media (max-width:980px){ .cv-grid{ grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:640px){ .cv-grid{ grid-template-columns:repeat(2,1fr);} }
+  .cv-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:14px; padding:16px; box-shadow:var(--shadow); }
+  .cv-thumb{ aspect-ratio:1/1.36; border-radius:8px; background:var(--paper-2); position:relative; overflow:hidden; margin-bottom:12px; }
+  .cv-thumb .bar{ position:absolute; left:10%; right:10%; height:6%; background:var(--line); border-radius:2px; }
+  .cv-thumb .accent{ position:absolute; left:0; top:0; bottom:0; width:26%; }
+  .cv-card h4{ font-size:13.5px; font-weight:700; }
+  .cv-card p{ font-size:11.5px; color:var(--ink-soft); margin-top:2px; }
+
+  /* ---------- INTERVIEW ---------- */
+  .interview-panel{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; background:var(--card); border:1px solid var(--line-soft); border-radius:24px; padding:44px; box-shadow:var(--shadow); }
+  @media (max-width:820px){ .interview-panel{ grid-template-columns:1fr; } }
+  .slot-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:20px 0; }
+  .slot{ padding:12px 8px; text-align:center; border:1px solid var(--line); border-radius:10px; font-size:13px; font-weight:700; cursor:pointer; background:var(--paper); }
+  .slot:hover{ border-color:var(--ink); }
+  .slot.picked{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .booking-confirm{ display:none; margin-top:16px; padding:16px; border-radius:12px; background:var(--sage-soft); color:var(--sage); font-size:13.5px; font-weight:600; }
+  .booking-confirm.show{ display:block; }
+  ul.qlist{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14px; }
+  ul.qlist li{ margin-bottom:8px; }
+
+  /* ---------- PRICING ---------- */
+  .price-card{ max-width:480px; margin:0 auto; background:var(--ink); color:var(--paper); border-radius:26px; padding:44px; text-align:center; }
+  .price-tag{ font-family:'Fraunces',serif; font-size:56px; margin:10px 0; }
+  .price-tag sup{ font-size:20px; top:-1.6em; }
+  .price-list{ list-style:none; padding:0; margin:26px 0; text-align:left; display:flex; flex-direction:column; gap:12px; }
+  .price-list li{ display:flex; gap:10px; font-size:14.5px; color:rgba(246,243,236,.85); }
+  .price-list li::before{ content:"✓"; color:var(--gold); font-weight:700; }
+  .toast{ position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:var(--paper); padding:14px 22px; border-radius:100px; font-size:13.5px; font-weight:600; opacity:0; pointer-events:none; transition:all .25s ease; z-index:200; box-shadow:0 10px 30px -6px rgba(0,0,0,.4); text-align:center; max-width:90vw;}
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-bottom:1px solid var(--line); padding:20px 0; cursor:pointer; }
+  .faq-q{ display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:15.5px; }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; color:var(--ink-soft); font-size:14.5px; }
+  .faq-item.open .faq-a{ max-height:200px; margin-top:12px; }
+  .faq-plus{ transition:transform .2s ease; font-size:20px; color:var(--gold-deep); }
+  .faq-item.open .faq-plus{ transform:rotate(45deg); }
+
+  footer{ background:var(--ink); color:rgba(246,243,236,.7); padding:60px 0 30px; }
+  .foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; padding-bottom:34px; border-bottom:1px solid rgba(246,243,236,.14); }
+  .foot-col h5{ color:var(--paper); font-size:13px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; font-family:'IBM Plex Mono',monospace; }
+  .foot-col a{ display:block; font-size:14px; margin-bottom:9px; text-decoration:none; color:rgba(246,243,236,.7); }
+  .foot-col a:hover{ color:var(--paper); }
+  .foot-bottom{ padding-top:24px; font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+  .video-block{ position:relative; border-radius:20px; overflow:hidden; aspect-ratio:16/9; background:linear-gradient(135deg,var(--ink),#232B47); display:flex; align-items:center; justify-content:center; }
+  .play-btn{ width:64px; height:64px; border-radius:50%; background:rgba(246,243,236,.14); border:1px solid rgba(246,243,236,.3); display:flex; align-items:center; justify-content:center; color:var(--paper); cursor:not-allowed; }
+  .video-caption{ position:absolute; bottom:16px; left:16px; color:rgba(246,243,236,.75); font-size:12.5px; font-family:'IBM Plex Mono',monospace; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand"><span class="mark"></span> Skill N Success</div>
+    <nav class="navlinks">
+      <a href="#journey">How it works</a>
+      <a href="#assessment">Take the Challenge</a>
+      <a href="#skills">Skill Boutique</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#cv">CV Studio</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="navcta">
+      <a href="#assessment" class="btn btn-primary btn-sm">Discover My Score</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AI Career Navigator</div>
+      <h1>Turn what you know<br>into <em>what's next.</em></h1>
+      <p class="lead">Answer a few honest questions and get your <b>Skill N Success Score</b> — then unlock ATS-ready CVs, role matches, a skill-gap roadmap and a 30-day action plan, personalized to you.</p>
+      <div class="hero-ctas">
+        <a href="#assessment" class="btn btn-gold">Discover My Success Path →</a>
+        <a href="#journey" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-note">Free 2-minute assessment · No account needed to see your score</div>
+      <div class="trust-row">
+        <div><b>5</b> ATS CV variants</div>
+        <div><b>20+</b> interview questions</div>
+        <div><b>30-day</b> action plan</div>
+        <div><b>₹110</b> full Success Plan</div>
+      </div>
+    </div>
+    <div class="dial-hero">
+      <div class="dial-card">
+        <div class="cap">Your Skill N Success Score</div>
+        <svg class="dial-svg" width="220" height="220" viewBox="0 0 220 220">
+          <circle cx="110" cy="110" r="92" fill="none" stroke="var(--paper-2)" stroke-width="16"/>
+          <circle id="heroRing" cx="110" cy="110" r="92" fill="none" stroke="url(#heroGrad)" stroke-width="16"
+            stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578" transform="rotate(-90 110 110)"/>
+          <defs>
+            <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3F6B52"/>
+              <stop offset="100%" stop-color="#C79A4B"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="dial-score" id="heroScoreText">— <small>/ 100</small></div>
+        <div class="dial-label" id="heroScoreLabel">Take the 2-minute challenge below to reveal yours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The path</div>
+      <h2>One clear journey, not a maze of tools.</h2>
+      <p>Every screen exists to move you one step along this path — in order.</p>
+    </div>
+    <div class="journey-row">
+      <div class="journey-step"><div class="journey-num">01</div><div class="journey-title">Discover</div><div class="journey-desc">Play the Success Path Challenge and see your score.</div></div>
+      <div class="journey-step"><div class="journey-num">02</div><div class="journey-title">Diagnose</div><div class="journey-desc">See exactly which skills are gaps, and which are strengths.</div></div>
+      <div class="journey-step"><div class="journey-num">03</div><div class="journey-title">Build</div><div class="journey-desc">Get 5 ATS-ready CVs and a LinkedIn rewrite grounded in your facts.</div></div>
+      <div class="journey-step"><div class="journey-num">04</div><div class="journey-title">Match</div><div class="journey-desc">See real roles worth applying to, with a fit rationale.</div></div>
+      <div class="journey-step"><div class="journey-num">05</div><div class="journey-title">Prepare</div><div class="journey-desc">Practice with a tailored interview question set and a mock session.</div></div>
+      <div class="journey-step"><div class="journey-num">06</div><div class="journey-title">Succeed</div><div class="journey-desc">Follow a 30-day plan built around your specific gaps.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT / GAME -->
+<section id="assessment">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">Free · 2 minutes</div>
+      <h2>The Success Path Challenge</h2>
+      <p>Ten quick taps. No essay questions, no uploads yet — just your honest read on where you stand today.</p>
+    </div>
+
+    <div class="quiz-panel">
+      <div class="quiz-inner">
+
+        <div id="quizStart" class="quiz-start">
+          <h3 style="font-size:24px;margin-bottom:14px;">Ready when you are.</h3>
+          <p style="color:rgba(246,243,236,.75);max-width:440px;margin:0 auto 20px;">This unlocks your free Skill N Success Score, a personalized preview, and a discount gatepass for your full Success Plan.</p>
+          <div style="display:flex;gap:10px;max-width:420px;margin:0 auto 14px;flex-wrap:wrap;justify-content:center;">
+            <input id="gateName" type="text" placeholder="First name" style="flex:1;min-width:140px;padding:12px 14px;border-radius:10px;border:1px solid rgba(246,243,236,.25);background:rgba(246,243,236,.06);color:var(--paper);font-family:'Manrope',sans-serif;">
+            <input id="gateEmail" type="email" placeholder="you@email.com" style="flex:1;min-width:180px;padding:12px 14px;border-radius:10px;border:1px solid rgba(246,243,236,.25);background:rgba(246,243,236,.06);color:var(--paper);font-family:'Manrope',sans-serif;">
+          </div>
+          <div id="gateError" style="color:#E39B7B;font-size:13px;margin-bottom:10px;display:none;">Please enter your name and a valid email to continue.</div>
+          <button class="btn btn-gold" onclick="startQuiz()">Start the Challenge →</button>
+          <div style="font-size:12px;color:rgba(246,243,236,.5);margin-top:10px;">We use this only to save your progress and send your Success Score.</div>
+        </div>
+
+        <div id="quizBody" style="display:none;">
+          <div class="quiz-top">
+            <span class="quiz-step-label" id="qStepLabel">Question 1 / 10</span>
+            <div class="quiz-progress-track"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
+          </div>
+          <div class="quiz-q" id="qText"></div>
+          <div class="quiz-options" id="qOptions"></div>
+          <button class="quiz-back" id="qBack" onclick="prevQ()" style="display:none;">← back</button>
+        </div>
+
+        <div id="quizReveal" class="reveal">
+          <div class="reveal-grid">
+            <div style="text-align:center;">
+              <svg width="180" height="180" viewBox="0 0 220 220">
+                <circle cx="110" cy="110" r="92" fill="none" stroke="rgba(246,243,236,.14)" stroke-width="16"/>
+                <circle id="revealRing" cx="110" cy="110" r="92" fill="none" stroke="url(#heroGrad)" stroke-width="16"
+                  stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578" transform="rotate(-90 110 110)"/>
+              </svg>
+            </div>
+            <div>
+              <div class="eyebrow" style="color:var(--gold);">Your result</div>
+              <h3 style="font-size:30px;color:var(--paper);">Skill N Success Score: <span id="revealScore">--</span>/100</h3>
+              <p id="revealText" style="color:rgba(246,243,236,.78);margin-top:10px;max-width:520px;"></p>
+              <div class="coupon">
+                <div>
+                  <div style="font-size:12px;color:rgba(246,243,236,.6);margin-bottom:4px;">Your gatepass reward</div>
+                  <code id="couponCode">SUCCESS15</code>
+                </div>
+                <span>15% off your ₹110 Success Plan today</span>
+              </div>
+              <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+                <a href="#dashboard" class="btn btn-gold">See my full dashboard</a>
+                <a href="#skills" class="btn btn-ghost" style="border-color:rgba(246,243,236,.35);color:var(--paper);">Explore skill gaps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Your dashboard</div>
+      <h2>Five dimensions. One clear picture.</h2>
+      <p>These update the moment you finish the Challenge above.</p>
+    </div>
+    <div id="dashLocked" class="locked-note">Take the Success Path Challenge above to populate this dashboard with your own scores.</div>
+    <div id="dimGrid" class="dim-grid" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- SKILL BOUTIQUE -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Skill Boutique</div>
+      <h2>Pick a skill basket. See the gap. See the fix.</h2>
+      <p>Every basket shows your current level, your target level, and the exact courses to close the distance.</p>
+    </div>
+    <div class="skill-grid" id="skillGrid"></div>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section id="jobs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Matched for you</div>
+      <h2>Prospect roles worth a look</h2>
+      <p>Live search links — these open real job boards filtered to the role, not fixed listings that go stale.</p>
+    </div>
+    <div class="job-list" id="jobList"></div>
+  </div>
+</section>
+
+<!-- CV STUDIO -->
+<section id="cv">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">CV Studio</div>
+      <h2>5 ATS-friendly CV templates, ready to fill</h2>
+      <p>Every variant is built for parsing software first, humans second — clean structure, no tables-as-layout, no icon-only headers.</p>
+    </div>
+    <div class="cv-grid" id="cvGrid"></div>
+    <p style="text-align:center;margin-top:22px;font-size:13.5px;color:var(--ink-soft);">Full templates, pre-filled with <i>your</i> facts, unlock inside the ₹110 Success Plan.</p>
+  </div>
+</section>
+
+<!-- INTERVIEW -->
+<section id="interview">
+  <div class="wrap">
+    <div class="interview-panel">
+      <div>
+        <div class="eyebrow">Prepare</div>
+        <h2 style="font-size:28px;">Practice before it counts.</h2>
+        <p style="color:var(--ink-soft);margin:14px 0 18px;">Your Success Plan includes 20+ role-specific interview questions with answer frameworks, plus a mock interview slot with a coach.</p>
+        <ul class="qlist">
+          <li>"Walk me through a time you had to learn a new tool under pressure."</li>
+          <li>"How do you prioritize when everything feels urgent?"</li>
+          <li>"What's a decision you'd make differently in hindsight?"</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size:15px;margin-bottom:6px;">Book a demo mock-interview slot</h4>
+        <p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">Preview only — live calendar sync connects at launch.</p>
+        <div class="slot-grid" id="slotGrid"></div>
+        <button class="btn btn-primary btn-sm" onclick="confirmBooking()">Confirm slot</button>
+        <div class="booking-confirm" id="bookingConfirm"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PLACEHOLDER -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">Coming soon</div>
+      <h2>See it in your own words</h2>
+      <p>Founder walkthrough and real success stories land here before invite-only launch.</p>
+    </div>
+    <div class="video-block">
+      <div class="play-btn">▶</div>
+      <div class="video-caption">Video coming soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">Simple pricing</div>
+      <h2>One plan. Everything you need to move.</h2>
+    </div>
+    <div class="price-card">
+      <div class="eyebrow" style="color:var(--gold);justify-content:center;">Success Plan</div>
+      <div class="price-tag"><sup>₹</sup>110<span style="font-size:16px;color:rgba(246,243,236,.6);"> one-time</span></div>
+      <ul class="price-list">
+        <li>5 ATS-optimized CV variants, editable and downloadable</li>
+        <li>Full skill-gap analysis with prioritized recommendations</li>
+        <li>Ranked role recommendations with fit rationale</li>
+        <li>LinkedIn headline, About section and keyword guidance</li>
+        <li>20+ interview questions with answer frameworks</li>
+        <li>Personalized 30-day action plan</li>
+      </ul>
+      <button class="btn btn-gold" style="width:100%;" id="checkoutBtn" onclick="tryCheckout()">Unlock My Success Plan</button>
+      <div style="font-size:12px;color:rgba(246,243,236,.5);margin-top:14px;">Secure payment via Razorpay · Verified before unlock</div>
+    </div>
+    <div id="planPanel" style="display:none;max-width:640px;margin:34px auto 0;background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:28px 32px;box-shadow:var(--shadow);"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap" style="max-width:760px;">
+    <div class="sec-head">
+      <div class="eyebrow">Questions</div>
+      <h2>Good to know</h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:280px;">
+        <div class="brand" style="color:var(--paper);"><span class="mark"></span>Skill N Success</div>
+        <p style="font-size:13.5px;color:rgba(246,243,236,.6);margin-top:14px;">Turn what you know into what's next.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Product</h5>
+        <a href="#journey">How it works</a>
+        <a href="#skills">Skill Boutique</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund &amp; Cancellation</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="#">Support</a>
+        <a href="#">hello@skillnsuccess.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Skill N Success. All rights reserved.</span>
+      <span>skillnsuccess.com</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-back" id="modalBack">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== DATA ===================== */
+const QUESTIONS = [
+  {dim:0, q:"How would you rate your hands-on expertise in your core skill area?", opts:["Beginner","Growing","Solid","Expert"]},
+  {dim:0, q:"How recently have you used your top skill in real work?", opts:["3+ years / never professionally","1–2 years ago","This year","This month"]},
+  {dim:1, q:"How complete is your LinkedIn / CV story right now?", opts:["Barely started","Basic","Decent","Polished"]},
+  {dim:1, q:"Do you have quantified achievements you can point to?", opts:["None yet","A few","Several","Many, with numbers"]},
+  {dim:2, q:"How closely does your experience match the roles you want next?", opts:["A big leap","Some overlap","Good overlap","Near-perfect fit"]},
+  {dim:2, q:"How's demand for your target role or industry right now?", opts:["Not sure","Mixed","Growing","High demand"]},
+  {dim:3, q:"How active is your job search right now?", opts:["Just curious","Exploring","Actively looking","Ready to move immediately"]},
+  {dim:3, q:"How's your network in your target space?", opts:["Thin","A few contacts","Decent","Strong"]},
+  {dim:4, q:"How comfortable are you in interviews?", opts:["Nervous","Okay","Confident","Very confident"]},
+  {dim:4, q:"When did you last practice interviewing?", opts:["Never","Long ago","Recently","Regularly"]},
+];
+const DIMS = [
+  {key:"skill", label:"Skill Strength", color:"var(--sage)"},
+  {key:"profile", label:"Profile Strength", color:"var(--gold)"},
+  {key:"market", label:"Market Fit", color:"var(--rust)"},
+  {key:"readiness", label:"Opportunity Readiness", color:"var(--sage)"},
+  {key:"interview", label:"Interview Readiness", color:"var(--gold)"},
+];
+const SKILLS = [
+  {name:"Data & Analytics", tag:"Skill Basket", desc:"SQL, dashboards, storytelling with numbers.", current:55, target:85,
+   sources:[["Coursera — Data Analytics search","https://www.coursera.org/search?query=data%20analytics"],
+            ["LinkedIn Learning — Analytics courses","https://www.linkedin.com/learning/search?keywords=data%20analytics"],
+            ["YouTube — SQL for beginners","https://www.youtube.com/results?search_query=sql+for+beginners"]],
+   roles:["Data Analyst","BI Analyst","Insights Manager"]},
+  {name:"Product & Strategy", tag:"Skill Basket", desc:"Roadmaps, prioritization, stakeholder alignment.", current:40, target:80,
+   sources:[["Coursera — Product Management","https://www.coursera.org/search?query=product%20management"],
+            ["LinkedIn Learning — PM fundamentals","https://www.linkedin.com/learning/search?keywords=product%20management"],
+            ["YouTube — Roadmap prioritization","https://www.youtube.com/results?search_query=product+roadmap+prioritization"]],
+   roles:["Product Manager","Product Owner","Strategy Associate"]},
+  {name:"AI / ML Engineering", tag:"Skill Basket", desc:"Applied ML, prompt design, model evaluation.", current:30, target:75,
+   sources:[["Coursera — Machine Learning","https://www.coursera.org/search?query=machine%20learning"],
+            ["LinkedIn Learning — AI foundations","https://www.linkedin.com/learning/search?keywords=artificial%20intelligence"],
+            ["YouTube — Intro to LLMs","https://www.youtube.com/results?search_query=introduction+to+large+language+models"]],
+   roles:["AI Engineer","ML Analyst","Applied AI Associate"]},
+  {name:"Marketing & Growth", tag:"Skill Basket", desc:"Funnels, positioning, performance channels.", current:60, target:88,
+   sources:[["Coursera — Digital Marketing","https://www.coursera.org/search?query=digital%20marketing"],
+            ["LinkedIn Learning — Growth marketing","https://www.linkedin.com/learning/search?keywords=growth%20marketing"],
+            ["YouTube — Funnel strategy","https://www.youtube.com/results?search_query=marketing+funnel+strategy"]],
+   roles:["Growth Marketer","Digital Marketing Specialist","Brand Associate"]},
+  {name:"Leadership & People", tag:"Skill Basket", desc:"Managing up, delegation, difficult conversations.", current:50, target:82,
+   sources:[["Coursera — Leadership skills","https://www.coursera.org/search?query=leadership"],
+            ["LinkedIn Learning — People management","https://www.linkedin.com/learning/search?keywords=people%20management"],
+            ["YouTube — Leadership fundamentals","https://www.youtube.com/results?search_query=leadership+fundamentals"]],
+   roles:["Team Lead","People Manager","Program Lead"]},
+  {name:"Design & UX", tag:"Skill Basket", desc:"User research, wireframes, design systems.", current:45, target:80,
+   sources:[["Coursera — UX Design","https://www.coursera.org/search?query=ux%20design"],
+            ["LinkedIn Learning — UX foundations","https://www.linkedin.com/learning/search?keywords=ux%20design"],
+            ["YouTube — Wireframing basics","https://www.youtube.com/results?search_query=wireframing+basics"]],
+   roles:["UX Designer","Product Designer","UX Researcher"]},
+];
+const JOBS = [
+  {title:"Data Analyst", where:"Remote · Global", fit:"88% fit", url:"https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst"},
+  {title:"Product Manager", where:"Hybrid · Global", fit:"81% fit", url:"https://www.linkedin.com/jobs/search/?keywords=Product%20Manager"},
+  {title:"AI Engineer", where:"Remote · Global", fit:"74% fit", url:"https://www.linkedin.com/jobs/search/?keywords=AI%20Engineer"},
+  {title:"Growth Marketing Specialist", where:"Remote · Global", fit:"85% fit", url:"https://www.linkedin.com/jobs/search/?keywords=Growth%20Marketing"},
+  {title:"UX Designer", where:"Hybrid · Global", fit:"79% fit", url:"https://www.linkedin.com/jobs/search/?keywords=UX%20Designer"},
+];
+const CVS = [
+  {name:"Classic ATS", accent:"var(--ink-soft)"},
+  {name:"Modern Minimal", accent:"var(--sage)"},
+  {name:"Career-Restart", accent:"var(--gold)"},
+  {name:"Fresher / Entry", accent:"var(--rust)"},
+  {name:"Global / Int'l", accent:"var(--ink)"},
+];
+const FAQS = [
+  ["Is the assessment really free?","Yes — the Success Path Challenge and your Skill N Success Score are free, no card required."],
+  ["What do I get for ₹110?","Five ATS CV variants, a full skill-gap report, ranked role recommendations, LinkedIn guidance, an interview question pack and a 30-day action plan."],
+  ["Does the AI make things up about my experience?","No. Every generated claim is grounded in what you provide — nothing is fabricated, and you can edit everything before download."],
+  ["Can I use this outside India?","Yes — the assessment and recommendations adapt to your target market and location preference."],
+  ["Can I get a refund?","Refunds follow our published Refund & Cancellation policy, linked in the footer."],
+];
+
+/* ===================== QUIZ (wired to real backend) ===================== */
+const API = ''; // same-origin — server.js serves this file itself
+let qi = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+let assessmentId = null;
+let currentUserEmail = null;
+
+async function api(path, opts){
+  const res = await fetch(API + path, {
+    headers: {'Content-Type':'application/json'},
+    ...opts,
+  });
+  if(!res.ok){ const t = await res.text(); throw new Error(t || res.statusText); }
+  return res.json();
+}
+
+async function startQuiz(){
+  const name = document.getElementById('gateName').value.trim();
+  const email = document.getElementById('gateEmail').value.trim();
+  const errEl = document.getElementById('gateError');
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if(!name || !emailOk){ errEl.style.display='block'; return; }
+  errEl.style.display='none';
+
+  try{
+    const data = await api('/api/assessment/start', { method:'POST', body: JSON.stringify({name, email, source:'landing_page'}) });
+    assessmentId = data.assessment_id;
+    currentUserEmail = email;
+    if(data.resumed && data.answers && data.answers.length){
+      data.answers.forEach(a => { answers[a.question_index] = a.option_index; });
+      qi = Math.min(data.answers.length, QUESTIONS.length-1);
+    }
+  } catch(e){
+    showToast('Could not reach the server — check your connection and try again.');
+    return;
+  }
+
+  document.getElementById('quizStart').style.display='none';
+  document.getElementById('quizBody').style.display='block';
+  renderQ();
+}
+function renderQ(){
+  const item = QUESTIONS[qi];
+  document.getElementById('qStepLabel').textContent = `Question ${qi+1} / ${QUESTIONS.length}`;
+  document.getElementById('qProgressFill').style.width = ((qi)/QUESTIONS.length*100)+'%';
+  document.getElementById('qText').textContent = item.q;
+  const wrap = document.getElementById('qOptions');
+  wrap.innerHTML='';
+  item.opts.forEach((opt,idx)=>{
+    const b = document.createElement('button');
+    b.className='quiz-opt'+(answers[qi]===idx?' picked':'');
+    b.textContent = opt;
+    b.onclick = ()=>selectOpt(idx);
+    wrap.appendChild(b);
+  });
+  document.getElementById('qBack').style.display = qi>0 ? 'inline-block':'none';
+}
+async function selectOpt(idx){
+  answers[qi]=idx;
+  try{
+    await api(`/api/assessment/${assessmentId}/answer`, { method:'POST', body: JSON.stringify({questionIndex: qi, optionIndex: idx}) });
+  } catch(e){ /* non-fatal — local state still advances, retried on complete */ }
+
+  if(qi < QUESTIONS.length-1){
+    qi++;
+    renderQ();
+  } else {
+    document.getElementById('qProgressFill').style.width='100%';
+    finishQuiz();
+  }
+}
+function prevQ(){ if(qi>0){ qi--; renderQ(); } }
+
+async function finishQuiz(){
+  document.getElementById('quizBody').style.display='none';
+
+  let result;
+  try{
+    result = await api(`/api/assessment/${assessmentId}/complete`, {
+      method:'POST',
+      body: JSON.stringify({ profile: { email: currentUserEmail } })
+    });
+  } catch(e){
+    showToast('Could not score your assessment — please retry.');
+    document.getElementById('quizBody').style.display='block';
+    return;
+  }
+
+  const overall = result.overall;
+  const dims = result.dimensionScores;
+  const dimScores = ['skill_strength','profile_strength','market_fit','opportunity_readiness','interview_readiness'].map(k=>dims[k]);
+
+  const reveal = document.getElementById('quizReveal');
+  reveal.classList.add('show');
+
+  animateRing('revealRing', overall);
+  animateRing('heroRing', overall);
+  document.getElementById('revealScore').textContent = overall;
+  document.getElementById('heroScoreText').innerHTML = overall + ' <small>/ 100</small>';
+  document.getElementById('heroScoreLabel').textContent = 'From your Success Path Challenge';
+  document.getElementById('revealText').textContent = overall>=70
+    ? "You're closer than you think — your profile is strong. Sharpen the gaps below and you're market-ready."
+    : overall>=45
+    ? "Solid foundation with clear room to grow. A focused 30-day plan will move this number fast."
+    : "Plenty of upside here. Most people at your stage jump 20+ points after one focused month.";
+
+  const codes = ["SUCCESS15","SNSGATE15","PATH15OFF"];
+  document.getElementById('couponCode').textContent = codes[Math.floor(Math.random()*codes.length)];
+
+  renderDashboard(dimScores);
+}
+
+function animateRing(id, pct){
+  const el = document.getElementById(id);
+  const c = 2*Math.PI*92;
+  const offset = c*(1-pct/100);
+  requestAnimationFrame(()=>{ el.style.transition='stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)'; el.style.strokeDashoffset = offset; });
+}
+
+/* ===================== DASHBOARD ===================== */
+function renderDashboard(dimScores){
+  document.getElementById('dashLocked').style.display='none';
+  const grid = document.getElementById('dimGrid');
+  grid.style.display='grid';
+  grid.innerHTML='';
+  const reasons = [
+    "Based on your recent hands-on use",
+    "Based on how complete your story is",
+    "Based on overlap with target roles",
+    "Based on your search activity & network",
+    "Based on comfort & recent practice",
+  ];
+  DIMS.forEach((d,i)=>{
+    const card = document.createElement('div');
+    card.className='dim-card';
+    const score = dimScores[i];
+    const c = 2*Math.PI*40;
+    card.innerHTML = `
+      <svg class="mini-dial" width="96" height="96" viewBox="0 0 96 96">
+        <circle cx="48" cy="48" r="40" fill="none" stroke="var(--paper-2)" stroke-width="9"/>
+        <circle cx="48" cy="48" r="40" fill="none" stroke="${d.color}" stroke-width="9" stroke-linecap="round"
+          stroke-dasharray="${c}" stroke-dashoffset="${c*(1-score/100)}" transform="rotate(-90 48 48)"/>
+      </svg>
+      <h4>${d.label}</h4>
+      <div class="val">${score}</div>
+      <p>${reasons[i]}</p>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ===================== SKILLS ===================== */
+function renderSkills(){
+  const grid = document.getElementById('skillGrid');
+  SKILLS.forEach((s,i)=>{
+    const card = document.createElement('div');
+    card.className='skill-card';
+    card.onclick=()=>openSkill(i);
+    card.innerHTML=`<div class="tag">${s.tag}</div><h3>${s.name}</h3><p>${s.desc}</p><div class="open">View gap analysis →</div>`;
+    grid.appendChild(card);
+  });
+}
+function openSkill(i){
+  const s = SKILLS[i];
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="eyebrow">${s.tag}</div>
+    <h3 style="font-size:24px;">${s.name}</h3>
+    <p style="color:var(--ink-soft);font-size:14.5px;margin-top:8px;">${s.desc}</p>
+    <div class="gap-row">
+      <div class="lbl"><span>Current level</span><span>${s.current}%</span></div>
+      <div class="bar-track"><div class="bar-fill current" style="width:${s.current}%"></div></div>
+    </div>
+    <div class="gap-row">
+      <div class="lbl"><span>Desired level for target role</span><span>${s.target}%</span></div>
+      <div class="bar-track"><div class="bar-fill target" style="width:${s.target}%"></div></div>
+    </div>
+    <div style="font-size:13px;color:var(--rust);font-weight:700;margin-top:-6px;">Gap to close: ${s.target-s.current} points</div>
+    <h4 style="margin-top:22px;font-size:15px;">Recommended training</h4>
+    <div class="src-list">
+      ${s.sources.map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} <span>↗</span></a>`).join('')}
+    </div>
+    <h4 style="margin-top:20px;font-size:15px;">Roles this basket unlocks</h4>
+    <div class="chip-row">${s.roles.map(r=>`<span class="chip">${r}</span>`).join('')}</div>
+  `;
+  document.getElementById('modalBack').classList.add('show');
+}
+function closeModal(){ document.getElementById('modalBack').classList.remove('show'); }
+document.getElementById('modalBack').addEventListener('click', e=>{ if(e.target.id==='modalBack') closeModal(); });
+
+/* ===================== JOBS ===================== */
+function renderJobs(){
+  const list = document.getElementById('jobList');
+  JOBS.forEach(j=>{
+    const row = document.createElement('div');
+    row.className='job-row';
+    row.innerHTML = `
+      <div>
+        <div class="job-role">${j.title}</div>
+        <div class="job-meta">${j.where}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="job-fit">${j.fit}</span>
+        <a href="${j.url}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Apply / Search roles ↗</a>
+      </div>`;
+    list.appendChild(row);
+  });
+}
+
+/* ===================== CV STUDIO ===================== */
+function renderCVs(){
+  const grid = document.getElementById('cvGrid');
+  CVS.forEach(c=>{
+    const card = document.createElement('div');
+    card.className='cv-card';
+    card.innerHTML = `
+      <div class="cv-thumb">
+        <div class="accent" style="background:${c.accent}"></div>
+        <div class="bar" style="top:14%;width:50%;left:34%;"></div>
+        <div class="bar" style="top:24%;width:60%;left:34%;"></div>
+        <div class="bar" style="top:40%;width:55%;left:34%;"></div>
+        <div class="bar" style="top:48%;width:45%;left:34%;"></div>
+        <div class="bar" style="top:64%;width:58%;left:34%;"></div>
+        <div class="bar" style="top:72%;width:40%;left:34%;"></div>
+      </div>
+      <h4>${c.name}</h4>
+      <p>ATS-parsed · editable</p>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ===================== INTERVIEW BOOKING (DEMO) ===================== */
+const SLOTS = ["Mon 10:00","Mon 15:30","Tue 11:00","Wed 09:30","Wed 17:00","Thu 13:00"];
+let pickedSlot = null;
+function renderSlots(){
+  const grid = document.getElementById('slotGrid');
+  SLOTS.forEach(s=>{
+    const el = document.createElement('div');
+    el.className='slot';
+    el.textContent=s;
+    el.onclick=()=>{
+      document.querySelectorAll('.slot').forEach(x=>x.classList.remove('picked'));
+      el.classList.add('picked'); pickedSlot=s;
+    };
+    grid.appendChild(el);
+  });
+}
+function confirmBooking(){
+  const box = document.getElementById('bookingConfirm');
+  if(!pickedSlot){ showToast('Pick a slot first'); return; }
+  box.textContent = `Demo booking confirmed for ${pickedSlot}. Live calendar sync (Cal.com / Calendly) connects at launch.`;
+  box.classList.add('show');
+}
+
+/* ===================== FAQ ===================== */
+function renderFAQ(){
+  const list = document.getElementById('faqList');
+  FAQS.forEach(([q,a])=>{
+    const item = document.createElement('div');
+    item.className='faq-item';
+    item.innerHTML = `<div class="faq-q">${q}<span class="faq-plus">+</span></div><div class="faq-a">${a}</div>`;
+    item.onclick = ()=> item.classList.toggle('open');
+    list.appendChild(item);
+  });
+}
+
+/* ===================== CHECKOUT + AI GENERATION (real Razorpay flow) ===================== */
+async function tryCheckout(){
+  if(!assessmentId){ showToast('Take the Success Path Challenge above first.'); document.getElementById('assessment').scrollIntoView({behavior:'smooth'}); return; }
+
+  const btn = document.getElementById('checkoutBtn');
+  btn.disabled = true; btn.textContent = 'Preparing checkout…';
+
+  let order;
+  try{
+    order = await api('/api/checkout/create-order', { method:'POST', body: JSON.stringify({ assessmentId, couponCode: document.getElementById('couponCode').textContent }) });
+  } catch(e){
+    showToast('Checkout is not configured yet — add live Razorpay keys on the server.');
+    btn.disabled = false; btn.textContent = 'Unlock My Success Plan';
+    return;
+  }
+  btn.disabled = false; btn.textContent = 'Unlock My Success Plan';
+
+  if(typeof Razorpay === 'undefined'){
+    showToast('Payment widget failed to load — check your connection.');
+    return;
+  }
+
+  const rzp = new Razorpay({
+    key: order.key_id,
+    amount: order.amount,
+    currency: order.currency,
+    name: 'Skill N Success',
+    description: 'Success Plan — ATS CVs, skill gaps, roles, interview pack, 30-day plan',
+    order_id: order.razorpay_order_id,
+    handler: async function(response){
+      try{
+        await api('/api/checkout/verify', { method:'POST', body: JSON.stringify({
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_signature: response.razorpay_signature,
+        })});
+        showToast('Payment verified — building your Success Plan…');
+        pollGeneration();
+      } catch(e){
+        showToast('Payment received but verification failed — contact support.');
+      }
+    },
+    prefill: { email: currentUserEmail || '' },
+    theme: { color: '#C79A4B' },
+  });
+  rzp.on('payment.failed', function(){ showToast('Payment failed or was cancelled.'); });
+  rzp.open();
+}
+
+async function pollGeneration(){
+  const panel = document.getElementById('planPanel');
+  panel.style.display='block';
+  panel.innerHTML = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;color:var(--ink-soft);">Generating your CVs, skill-gap report and interview pack…</div>';
+  panel.scrollIntoView({behavior:'smooth', block:'center'});
+
+  for(let i=0;i<20;i++){
+    await new Promise(r=>setTimeout(r,3000));
+    try{
+      const res = await api(`/api/generation/${assessmentId}/result`);
+      if(res.status === 'COMPLETED' && res.artifact){ renderPlan(res.artifact); return; }
+      if(res.status === 'FAILED'){ panel.innerHTML = '<div>Generation failed — our team has been notified. Please retry from your dashboard shortly.</div>'; return; }
+    } catch(e){ /* job not created yet — keep polling */ }
+  }
+  panel.innerHTML = '<div>Still working on it — this can take a minute. Refresh in a bit to see your full plan.</div>';
+}
+
+function renderPlan(artifact){
+  const panel = document.getElementById('planPanel');
+  const roles = (artifact.role_recommendations||[]).slice(0,3).map(r=>`<li><b>${r.role}</b> — ${r.fit_rationale}</li>`).join('');
+  const cvNames = (artifact.cv_variants||[]).map(c=>c.variant_name).join(' · ');
+  panel.innerHTML = `
+    <div class="eyebrow">Your Success Plan is ready</div>
+    <h3 style="font-size:20px;margin:8px 0 14px;">Here's what we built for you</h3>
+    <p style="font-size:13.5px;color:var(--ink-soft);"><b>5 CVs generated:</b> ${cvNames || '—'}</p>
+    <ul class="qlist" style="margin-top:10px;">${roles || ''}</ul>
+    <p style="font-size:13px;color:var(--ink-soft);margin-top:14px;">${(artifact.interview_questions||[]).length} interview questions and your 30-day action plan are included. Full downloads land in your account area.</p>
+  `;
+}
+
+function tryCheckout_legacy(){ /* replaced by real flow above, kept as no-op guard */ }
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=>t.classList.remove('show'), 3200);
+}
+
+renderSkills();
+renderJobs();
+renderCVs();
+renderSlots();
+renderFAQ();
+</script>
+</body>
+</html>
