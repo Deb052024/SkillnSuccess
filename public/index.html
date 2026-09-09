@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skill N Success — Turn what you know into what's next</title>
+<meta name="description" content="Discover your Skill N Success Score, close your skill gaps, and unlock ATS-ready CVs, role matches and a 30-day action plan." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  :root{
+    --ink:#12172B;
+    --ink-soft:#4B5163;
+    --paper:#F6F3EC;
+    --paper-2:#EFEAE0;
+    --card:#FFFFFF;
+    --gold:#C79A4B;
+    --gold-deep:#A67B33;
+    --sage:#3F6B52;
+    --sage-soft:#DCE7DF;
+    --rust:#A8583A;
+    --line:rgba(18,23,43,0.12);
+    --line-soft:rgba(18,23,43,0.07);
+    --radius:18px;
+    --shadow: 0 1px 2px rgba(18,23,43,.04), 0 12px 32px -12px rgba(18,23,43,.18);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Manrope',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{ font-family:'Fraunces',serif; font-weight:600; margin:0; letter-spacing:-.01em; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  a{ color:inherit; }
+  img,svg{ display:block; max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  section{ padding:104px 0; position:relative; }
+  @media (max-width:720px){ section{ padding:64px 0; } .wrap{padding:0 18px;} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--sage); font-weight:600; margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:16px; height:1px; background:var(--sage); display:inline-block; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,243,236,.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navbar{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:var(--maxw); margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:19px; }
+  .brand .mark{ width:30px; height:30px; border-radius:50%; background:conic-gradient(var(--sage) 0deg 250deg, var(--gold) 250deg 360deg); position:relative; flex:none; }
+  .brand .mark::after{ content:""; position:absolute; inset:6px; background:var(--paper); border-radius:50%; }
+  .navlinks{ display:flex; gap:28px; font-size:14.5px; font-weight:600; color:var(--ink-soft); }
+  .navlinks a:hover{ color:var(--ink); }
+  .navcta{ display:flex; align-items:center; gap:14px; }
+  @media (max-width:900px){ .navlinks{ display:none; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; justify-content:center;
+    padding:13px 22px; border-radius:100px; font-weight:700; font-size:14.5px;
+    border:1px solid transparent; cursor:pointer; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ box-shadow:0 8px 20px -6px rgba(18,23,43,.45); }
+  .btn-gold{ background:var(--gold); color:#241B08; }
+  .btn-gold:hover{ box-shadow:0 8px 20px -6px rgba(199,154,75,.6); }
+  .btn-ghost{ background:transparent; border-color:var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-sm{ padding:9px 16px; font-size:13px; }
+  .btn[disabled]{ opacity:.45; cursor:not-allowed; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand"><span class="mark"></span> Skill N Success</div>
+    <nav class="navlinks">
+      <a href="#journey">How it works</a>
+      <a href="#assessment">Take the Challenge</a>
+      <a href="#skills">Skill Boutique</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#cv">CV Studio</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="navcta">
+      <a href="#assessment" class="btn btn-primary btn-sm">Discover My Score</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AI Career Navigator</div>
+      <h1>Turn what you know<br>into <em>what's next.</em></h1>
+      <p class="lead">Answer a few honest questions and get your <b>Skill N Success Score</b> — then unlock ATS-ready CVs, role matches, a skill-gap roadmap and a 30-day action plan, personalized to your profile.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
