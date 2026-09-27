@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,6 +236,46 @@
   ul.qlist{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14px; }
   ul.qlist li{ margin-bottom:8px; }
 
+  /* ---------- BOOKS ---------- */
+  .book-hero{ display:grid; grid-template-columns:280px 1fr; gap:36px; align-items:start; margin-bottom:40px; }
+  @media (max-width:820px){ .book-hero{ grid-template-columns:1fr; } }
+  .book-cover{ background:linear-gradient(160deg,#0F3B3A,#1B2540); border-radius:18px; padding:26px 22px; color:var(--paper); box-shadow:var(--shadow); }
+  .book-cover .b-eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+  .book-cover h3{ color:#fff; font-size:22px; margin:10px 0 6px; line-height:1.2; }
+  .book-cover .b-sub{ font-size:12.5px; color:rgba(246,243,236,.7); margin-bottom:16px; }
+  .book-cover .b-meta{ display:flex; flex-wrap:wrap; gap:8px; font-size:11.5px; color:rgba(246,243,236,.75); }
+  .book-cover .b-meta span{ background:rgba(246,243,236,.1); padding:4px 9px; border-radius:100px; }
+  .checklist-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:20px; padding:30px 32px; box-shadow:var(--shadow); }
+  .checklist-card h4{ font-size:18px; margin-bottom:4px; }
+  .checklist-card .b-note{ font-size:13px; color:var(--ink-soft); margin-bottom:18px; }
+  .checklist-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px 22px; }
+  @media (max-width:640px){ .checklist-grid{ grid-template-columns:1fr; } }
+  .checklist-item{ display:flex; gap:10px; align-items:flex-start; font-size:13.5px; }
+  .checklist-item .num{ flex:none; width:22px; height:22px; border-radius:50%; background:var(--sage-soft); color:var(--sage); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; }
+  .checklist-item b{ display:block; color:var(--ink); }
+  .checklist-item span{ color:var(--ink-soft); }
+  .bi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:28px 0 34px; }
+  @media (max-width:900px){ .bi-grid{ grid-template-columns:1fr; } }
+  .bi-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:16px; padding:20px; box-shadow:var(--shadow); }
+  .bi-card .tag{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--sage); text-transform:uppercase; letter-spacing:.06em; }
+  .bi-card .pay{ font-family:'Fraunces',serif; font-size:21px; margin:8px 0 4px; }
+  .bi-card p{ font-size:12.5px; color:var(--ink-soft); margin:0; }
+  .bi-card a{ font-size:11.5px; font-weight:700; color:var(--ink); text-decoration:none; }
+  .bi-steps{ list-style:none; counter-reset:bi; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+  .bi-steps li{ counter-increment:bi; display:flex; gap:12px; font-size:14px; color:var(--ink-soft); }
+  .bi-steps li::before{ content:counter(bi); flex:none; width:24px; height:24px; border-radius:50%; background:var(--ink); color:var(--paper); font-size:11.5px; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; }
+  .v2-banner{ margin-top:44px; background:linear-gradient(135deg,var(--ink),#232B47); border-radius:24px; padding:38px 40px; color:var(--paper); display:grid; grid-template-columns:1.3fr 1fr; gap:30px; align-items:center; }
+  @media (max-width:820px){ .v2-banner{ grid-template-columns:1fr; } }
+  .v2-banner .b-eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+  .v2-banner h3{ color:#fff; font-size:24px; margin:8px 0 10px; }
+  .v2-banner p{ color:rgba(246,243,236,.72); font-size:14px; }
+  .upi-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+  .upi-fallback{ font-size:11.5px; color:rgba(246,243,236,.5); margin-top:10px; }
+  .price-card .upi-fallback{ color:rgba(246,243,236,.5); }
+  .book-buy-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:18px; padding:22px; box-shadow:var(--shadow); }
+  .book-buy-card .upi-fallback{ color:var(--ink-soft); }
+  .book-buy-card .price-tag{ color:var(--ink); font-size:34px; text-align:left; margin:2px 0 14px; }
+
   /* ---------- PRICING ---------- */
   .price-card{ max-width:480px; margin:0 auto; background:var(--ink); color:var(--paper); border-radius:26px; padding:44px; text-align:center; }
   .price-tag{ font-family:'Fraunces',serif; font-size:56px; margin:10px 0; }
@@ -264,6 +305,7 @@
   .play-btn{ width:64px; height:64px; border-radius:50%; background:rgba(246,243,236,.14); border:1px solid rgba(246,243,236,.3); display:flex; align-items:center; justify-content:center; color:var(--paper); cursor:not-allowed; }
   .video-caption{ position:absolute; bottom:16px; left:16px; color:rgba(246,243,236,.75); font-size:12.5px; font-family:'IBM Plex Mono',monospace; }
 </style>
+  : <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-HBZ3GPYKBN"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HBZ3GPYKBN'); </script>
 </head>
 <body>
 
@@ -276,6 +318,7 @@
       <a href="#skills">Skill Boutique</a>
       <a href="#jobs">Jobs</a>
       <a href="#cv">CV Studio</a>
+      <a href="#books">Books</a>
       <a href="#pricing">Pricing</a>
     </nav>
     <div class="navcta">
@@ -500,6 +543,110 @@
   </div>
 </section>
 
+<!-- BOOKS -->
+<section id="books">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Playbook</div>
+      <h2>Turn your break into a return-to-work plan</h2>
+      <p>The Returnship &amp; Remote Jobs Playbook 2026 — 10 chapters, 12 verified return programmes across India and worldwide, a week-by-week 90-day roadmap, and the scam red flags to avoid along the way.</p>
+    </div>
+
+    <div class="book-hero">
+      <div class="book-cover">
+        <div class="b-eyebrow">Edition 1.0 · Sept 2026</div>
+        <h3>The Returnship &amp; Remote Jobs Playbook 2026</h3>
+        <div class="b-sub">A step-by-step guide to navigating your career comeback, embracing flexibility, and thriving in the new world of work.</div>
+        <div class="b-meta">
+          <span>10 chapters</span>
+          <span>12 programmes</span>
+          <span>90-day plan</span>
+          <span>Scam safety guide</span>
+        </div>
+      </div>
+
+      <div class="book-buy-card">
+        <div class="eyebrow" style="justify-content:flex-start;">Get your copy</div>
+        <div class="price-tag"><sup>₹</sup>110<span style="font-size:14px;color:var(--ink-soft);"> · US$3 international</span></div>
+        <ul class="price-list" style="color:var(--ink-soft);">
+          <li style="color:var(--ink-soft);">Five Routes Back — pick the one that fits your break</li>
+          <li style="color:var(--ink-soft);">Programme Directory: TCS, Infosys, Accenture, Amazon, Tata, JPMorganChase, Uber &amp; more</li>
+          <li style="color:var(--ink-soft);">Your Gap Story — CV, LinkedIn and interview scripts</li>
+          <li style="color:var(--ink-soft);">The full week-by-week 90-day plan</li>
+        </ul>
+        <div class="upi-row">
+          <a class="btn btn-gold btn-sm" href="upi://pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=110&amp;cu=INR&amp;tn=Returnship%20Playbook%202026" target="_blank" rel="noopener">Pay ₹110 · Any UPI app</a>
+          <a class="btn btn-primary btn-sm" href="phonepe://pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=110&amp;cu=INR&amp;tn=Returnship%20Playbook%202026">PhonePe</a>
+          <a class="btn btn-primary btn-sm" href="tez://upi/pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=110&amp;cu=INR&amp;tn=Returnship%20Playbook%202026">GPay</a>
+          <button class="btn btn-sm" type="button" onclick="copyUpi('8456806041@upi')">Copy UPI ID</button>
+        </div>
+        <div class="upi-fallback">UPI ID: 8456806041@upi · UPI buttons open your phone's payment app — on desktop, copy the ID or scan from your phone. <b>Confirm this is your real UPI ID before publishing</b> — see note below.</div>
+      </div>
+    </div>
+
+    <div class="checklist-card">
+      <h4>Free preview — 8 red flags of a job scam</h4>
+      <div class="b-note">Straight from Chapter 10. Work-from-home offers are the most targeted category of job scam in India right now — run any offer through this list first.</div>
+      <div class="checklist-grid">
+        <div class="checklist-item"><span class="num">1</span><div><b>Asks you to pay</b><span>Registration, training, deposit or "security" fees</span></div></div>
+        <div class="checklist-item"><span class="num">2</span><div><b>A job you never applied for</b><span>Unsolicited offer, no real interview</span></div></div>
+        <div class="checklist-item"><span class="num">3</span><div><b>Only WhatsApp or Telegram</b><span>No official email, no video or panel interview</span></div></div>
+        <div class="checklist-item"><span class="num">4</span><div><b>"HR" uses a free email</b><span>Gmail or Yahoo instead of a company domain</span></div></div>
+        <div class="checklist-item"><span class="num">5</span><div><b>Pressure to act now</b><span>"Today only", "few seats left", pay within an hour</span></div></div>
+        <div class="checklist-item"><span class="num">6</span><div><b>Too-good-to-be-true pay</b><span>High salary for light work, "no target"</span></div></div>
+        <div class="checklist-item"><span class="num">7</span><div><b>Wants Aadhaar, PAN or OTP</b><span>Personal or bank details before any offer letter</span></div></div>
+        <div class="checklist-item"><span class="num">8</span><div><b>Cannot be verified</b><span>No website, company registration or staff profiles</span></div></div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px;">
+      <div class="eyebrow">Operational Snapshot</div>
+      <h2>Remote BI &amp; data analytics roles are hiring</h2>
+      <p>A quick read of live postings, not a survey average — click through to the source before you rely on any number.</p>
+    </div>
+    <div class="bi-grid">
+      <div class="bi-card">
+        <div class="tag">India · Remote</div>
+        <div class="pay">₹15L–₹25L /yr</div>
+        <p>Data Analyst / Power BI Engineer, Hyderabad (remote) — Power BI, DAX, Power Query, SQL, Fabric workspaces.</p>
+      </div>
+      <div class="bi-card">
+        <div class="tag">India · Remote</div>
+        <div class="pay">KPMG Global Services</div>
+        <p>Data Analyst (Power BI + Python), 4–6 yrs — dashboards, DAX, SQL, data warehousing. Location-restricted to India.</p>
+      </div>
+      <div class="bi-card">
+        <div class="tag">US · 100% Remote</div>
+        <div class="pay">$106K–$144K /yr</div>
+        <p>Data Analyst, Power BI — multiple US remote locations, full benefits, full-time.</p>
+      </div>
+    </div>
+    <ol class="bi-steps">
+      <li>Lead with the tools recruiters actually filter for: Power BI, DAX, Power Query, SQL — name them in your headline, not just your CV body.</li>
+      <li>Build one public dashboard as proof of work (a portfolio project beats a certificate alone).</li>
+      <li>Get one recognized certification (Microsoft PL-300 or equivalent) — several listings above name it as "good to have".</li>
+      <li>Search where remote-BI roles actually post: Remote OK, FlexJobs, LinkedIn's Remote filter, and company career pages directly.</li>
+      <li>Apply with a break-aware CV (see Chapter 5) — several of the roles above sit inside returner-friendly teams.</li>
+    </ol>
+
+    <div class="v2-banner">
+      <div>
+        <div class="b-eyebrow">Coming next</div>
+        <h3>Version 2.0 is already taking shape</h3>
+        <p>Updated 2027 application windows, a dedicated salary-negotiation chapter, and 10 more verified remote-BI and analytics employers added to the Programme Directory. <i>[Confirm scope before publishing — see note below.]</i></p>
+      </div>
+      <div>
+        <div class="upi-row">
+          <a class="btn btn-gold btn-sm" href="upi://pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=149&amp;cu=INR&amp;tn=Playbook%20V2%20Early%20Bird" target="_blank" rel="noopener">Reserve V2 · ₹149 early-bird</a>
+          <a class="btn btn-primary btn-sm" href="phonepe://pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=149&amp;cu=INR&amp;tn=Playbook%20V2%20Early%20Bird">PhonePe</a>
+          <a class="btn btn-primary btn-sm" href="tez://upi/pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=149&amp;cu=INR&amp;tn=Playbook%20V2%20Early%20Bird">GPay</a>
+        </div>
+        <div class="upi-fallback">Launch price ₹199 · early-bird saves ₹50</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
@@ -547,6 +694,7 @@
         <h5>Product</h5>
         <a href="#journey">How it works</a>
         <a href="#skills">Skill Boutique</a>
+        <a href="#books">Books</a>
         <a href="#pricing">Pricing</a>
       </div>
       <div class="foot-col">
@@ -997,6 +1145,12 @@ function renderPlan(artifact){
 }
 
 function tryCheckout_legacy(){ /* replaced by real flow above, kept as no-op guard */ }
+function copyUpi(id){
+  navigator.clipboard.writeText(id).then(
+    () => showToast('UPI ID copied — paste it into any UPI app.'),
+    () => showToast('Could not copy — UPI ID is ' + id)
+  );
+}
 function showToast(msg){
   const t = document.getElementById('toast');
   t.textContent = msg;
