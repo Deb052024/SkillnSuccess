@@ -275,6 +275,22 @@
   .book-buy-card{ background:var(--card); border:1px solid var(--line-soft); border-radius:18px; padding:22px; box-shadow:var(--shadow); }
   .book-buy-card .upi-fallback{ color:var(--ink-soft); }
   .book-buy-card .price-tag{ color:var(--ink); font-size:34px; text-align:left; margin:2px 0 14px; }
+  /* Book 2 — Dealer Network Playbook */
+  .book-divider{ margin:72px 0 0; padding-top:56px; border-top:1px solid var(--line); }
+  .dp-hero{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:40px; align-items:start; }
+  @media (max-width:900px){ .dp-hero{ grid-template-columns:1fr; gap:28px; } }
+  .dp-gallery{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .dp-gallery figure{ margin:0; }
+  .dp-gallery img{ display:block; width:100%; height:auto; aspect-ratio:900/1274; object-fit:cover; border-radius:12px; border:1px solid var(--line-soft); box-shadow:var(--shadow); background:var(--paper-2); }
+  .dp-gallery figcaption{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px; }
+  .dp-stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:0 0 18px; }
+  .dp-stats div{ background:var(--paper-2); border-radius:12px; padding:12px 14px; }
+  .dp-stats b{ display:block; font-family:'Fraunces',serif; font-size:22px; color:var(--ink); }
+  .dp-stats span{ font-size:12px; color:var(--ink-soft); }
+  .dp-pay{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+  .dp-pay .btn{ width:100%; justify-content:center; text-align:center; }
+  .dp-methods{ font-size:12px; color:var(--ink-soft); margin-top:12px; line-height:1.6; }
+  .dp-methods b{ color:var(--ink); }
 
   /* ---------- PRICING ---------- */
   .price-card{ max-width:480px; margin:0 auto; background:var(--ink); color:var(--paper); border-radius:26px; padding:44px; text-align:center; }
@@ -642,6 +658,52 @@
           <a class="btn btn-primary btn-sm" href="tez://upi/pay?pa=8456806041@upi&amp;pn=Skill%20N%20Success&amp;am=149&amp;cu=INR&amp;tn=Playbook%20V2%20Early%20Bird">GPay</a>
         </div>
         <div class="upi-fallback">Launch price ₹199 · early-bird saves ₹50</div>
+      </div>
+    </div>
+
+    <!-- BOOK 2: THE DEALER NETWORK PLAYBOOK -->
+    <div class="book-divider" id="dealer-playbook">
+      <div class="sec-head">
+        <div class="eyebrow">Field Edition · New</div>
+        <h2>The Dealer Network Playbook</h2>
+        <p>How to build dealers who make money, win customers back from competitors and turn a struggling market into one you lead. Written for cars, two-wheelers, tractors, LCVs, three-wheelers and EVs, with every figure in US dollars so it works in any market.</p>
+      </div>
+
+      <div class="dp-hero">
+        <div class="dp-gallery">
+          <figure>
+            <img src="/books/dealer-playbook-cover.webp" width="900" height="1274" loading="lazy" alt="Cover of The Dealer Network Playbook by Debasis Panda, Skill N Success Field Edition">
+            <figcaption>Cover</figcaption>
+          </figure>
+          <figure>
+            <img src="/books/dealer-playbook-contents.webp" width="900" height="1274" loading="lazy" alt="Contents page listing the 14 chapters of The Dealer Network Playbook">
+            <figcaption>Inside: 14 chapters</figcaption>
+          </figure>
+        </div>
+
+        <div class="book-buy-card">
+          <div class="eyebrow" style="justify-content:flex-start;">Instant PDF download</div>
+          <div class="price-tag"><sup>US$</sup>4<span style="font-size:14px;color:var(--ink-soft);"> · 39 pages · one-time</span></div>
+          <div class="dp-stats">
+            <div><b>+60%</b><span>more deliveries from the same enquiries</span></div>
+            <div><b>$24,100</b><span>monthly loss-to-profit swing at one dealer</span></div>
+            <div><b>1 in 10</b><span>lost customers won back in 72 hours</span></div>
+            <div><b>9→24%</b><span>market share in a shrinking market</span></div>
+          </div>
+          <ul class="price-list" style="margin:0 0 18px;">
+            <li style="color:var(--ink-soft);">Dealer appointment, territory and break-even maths</li>
+            <li style="color:var(--ink-soft);">The six-stage customer journey, enquiry to referral</li>
+            <li style="color:var(--ink-soft);">Finance partners, F&amp;I income and service retention</li>
+            <li style="color:var(--ink-soft);">12 worked loss-to-profit calculations, scorecards and the 30-60-90 review cadence</li>
+          </ul>
+          <div class="dp-pay">
+            <a class="btn btn-gold" id="dpBuyBtn" href="#dealer-playbook" rel="noopener">Buy now · US$4</a>
+            <a class="btn btn-primary btn-sm" id="dpPaypalBtn" href="#dealer-playbook" target="_blank" rel="noopener" style="display:none;">Pay with PayPal</a>
+          </div>
+          <div class="dp-methods" id="dpMethods">
+            <b>Pay from anywhere</b> — UAE, US, UK, Australia, Africa, India and beyond. Visa, Mastercard, Amex, Apple Pay, Google Pay and PayPal. Your local tax is worked out at checkout and the PDF link is emailed to you straight away.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1159,6 +1221,58 @@ function showToast(msg){
   window._toastTimer = setTimeout(()=>t.classList.remove('show'), 3200);
 }
 
+/* ===================== E-BOOK CHECKOUT (hosted links from /api/config) ===================== */
+async function setupBookCheckout(){
+  const buy = document.getElementById('dpBuyBtn');
+  const pp = document.getElementById('dpPaypalBtn');
+  if(!buy) return;
+  let links = {};
+  try{
+    const r = await fetch('/api/config');
+    if(r.ok) links = ((await r.json()).books || {}).dealerPlaybook || {};
+  }catch(e){ /* offline or static preview: fall through to notify-me */ }
+
+  if(links.checkoutUrl){
+    buy.href = links.checkoutUrl;
+    buy.target = '_blank';
+  } else {
+    buy.textContent = 'Notify me when checkout opens';
+    buy.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      openBookNotify();
+    });
+  }
+  if(links.paypalUrl){
+    pp.href = links.paypalUrl;
+    pp.style.display = '';
+  }
+}
+
+function openBookNotify(){
+  const back = document.getElementById('modalBack');
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3 style="font-size:20px;margin:0 0 8px;">The Dealer Network Playbook</h3>
+    <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 14px;">Checkout opens shortly. Leave your email and we'll send the US$4 link the moment it's live.</p>
+    <form id="dpNotifyForm" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="email" required placeholder="you@company.com" id="dpNotifyEmail" style="padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;">
+      <button class="btn btn-gold" type="submit">Notify me</button>
+    </form>`;
+  back.classList.add('show');
+  document.getElementById('dpNotifyForm').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const email = document.getElementById('dpNotifyEmail').value.trim();
+    try{
+      await api('/api/waitlist/join', { method:'POST', body: JSON.stringify({ email, name: 'dealer-playbook' }) });
+      showToast("You're on the list — we'll email the checkout link.");
+    }catch(e){
+      showToast('Could not save right now — email hello@skillnsuccess.com');
+    }
+    back.classList.remove('show');
+  });
+}
+
+setupBookCheckout();
 renderSkills();
 renderJobs();
 renderCVs();

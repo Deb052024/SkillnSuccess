@@ -38,8 +38,23 @@ app.use('/api/waitlist', waitlistRoutes);
 // Lets the frontend know whether to show live Razorpay checkout or a waitlist
 // capture. Flip ENABLE_PAYMENTS to "true" once Razorpay keys are configured —
 // no frontend redeploy needed beyond the env var change.
+// Hosted-checkout links for e-books are set as env vars on Render, so a link can be
+// added or swapped (Lemon Squeezy, Gumroad, PayPal…) without touching the code.
+// Only https URLs are passed through to the page.
+function httpsOrEmpty(v) {
+  return /^https:\/\//i.test((v || '').trim()) ? v.trim() : '';
+}
+
 app.get('/api/config', (req, res) => {
-  res.json({ paymentsEnabled: process.env.ENABLE_PAYMENTS === 'true' });
+  res.json({
+    paymentsEnabled: process.env.ENABLE_PAYMENTS === 'true',
+    books: {
+      dealerPlaybook: {
+        checkoutUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_CHECKOUT_URL),
+        paypalUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_PAYPAL_URL),
+      },
+    },
+  });
 });
 
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));

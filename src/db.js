@@ -100,6 +100,13 @@ CREATE TABLE IF NOT EXISTS audit_log (
   metadata TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+CREATE TABLE IF NOT EXISTS waitlist (
+  waitlist_id TEXT PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  name TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
 `);
 
 module.exports = db;
