@@ -50,7 +50,10 @@ app.get('/api/config', (req, res) => {
     paymentsEnabled: process.env.ENABLE_PAYMENTS === 'true',
     books: {
       dealerPlaybook: {
-        checkoutUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_CHECKOUT_URL),
+        // Env var wins; otherwise the live Lemon Squeezy checkout is used.
+        checkoutUrl:
+          httpsOrEmpty(process.env.DEALER_PLAYBOOK_CHECKOUT_URL) ||
+          'https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab',
         paypalUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_PAYPAL_URL),
       },
     },
