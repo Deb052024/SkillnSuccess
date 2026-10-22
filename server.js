@@ -67,7 +67,8 @@ app.get('/api/config', (req, res) => {
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));
 
 // Serves the marketing site (public/index.html) so the whole product is one deployable app.
-app.use(express.static(path.join(__dirname, 'public')));
+// extensions: ['html'] lets /dealer-playbook serve public/dealer-playbook.html (ad landing page).
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
