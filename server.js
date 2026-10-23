@@ -47,18 +47,17 @@ function httpsOrEmpty(v) {
 
 const DEALER_CHECKOUT =
   httpsOrEmpty(process.env.DEALER_PLAYBOOK_CHECKOUT_URL) ||
-  'https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab';
+  'https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true';
 
 app.get('/api/config', (req, res) => {
   res.json({
     paymentsEnabled: process.env.ENABLE_PAYMENTS === 'true',
     books: {
       dealerPlaybook: {
-        // Env var wins; otherwise the Lemon Squeezy checkout is used.
+        // Env var wins; otherwise the Gumroad checkout is used.
         checkoutUrl: DEALER_CHECKOUT,
-        // Lemon Squeezy checkout already offers PayPal and emails the PDF,
-        // so the PayPal button uses it unless a separate link is set.
-        paypalUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_PAYPAL_URL) || DEALER_CHECKOUT,
+        // Separate PayPal button only shows if its own link is set.
+        paypalUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_PAYPAL_URL),
       },
     },
   });

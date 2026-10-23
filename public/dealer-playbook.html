@@ -168,7 +168,7 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
 <header>
   <div class="wrap">
     <a class="brand" href="/"><span class="mark"></span>Skill N Success</a>
-    <a class="btn btn-gold js-buy" href="https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab" data-pos="header">Get it · US$4</a>
+    <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true" data-pos="header">Get it · US$4</a>
   </div>
 </header>
 
@@ -181,10 +181,10 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
     <div class="hero-body">
       <p class="lead">Most new dealers lose money in their first year: the wrong partner, the wrong territory, stock that eats the cash. <b>The Dealer Network Playbook</b> is the field system for picking the right dealer, planning stock and working capital, and tracking break-even month by month.</p>
       <div class="hero-cta">
-        <a class="btn btn-gold js-buy" href="https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab" data-pos="hero">Get the playbook · US$4</a>
+        <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true" data-pos="hero">Get the playbook · US$4</a>
         <a class="muted" href="#inside" style="font-weight:700;font-size:15px;">See what's inside ↓</a>
       </div>
-      <div class="trust"><b>Instant PDF</b> · 39 pages · 14 chapters · Card, Apple Pay, Google Pay or PayPal</div>
+      <div class="trust"><b>Instant PDF</b> · 39 pages · 14 chapters · Card, Apple Pay or Google Pay</div>
     </div>
     <div class="hero-video">
       <div class="video-card">
@@ -294,8 +294,8 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
         <li>Scorecards for sell-through, inventory ageing and service retention</li>
         <li>Every figure in US dollars, ready for any market</li>
       </ul>
-      <a class="btn btn-gold btn-block js-buy" href="https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab" data-pos="buy">Buy now · US$4</a>
-      <div class="methods">Pay from anywhere: South Africa, UAE, US, UK, Australia, India and beyond. Visa, Mastercard, Amex, Apple Pay, Google Pay and PayPal. Local tax is worked out at checkout and the PDF link is emailed to you straight away.</div>
+      <a class="btn btn-gold btn-block js-buy" href="https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true" data-pos="buy">Buy now · US$4</a>
+      <div class="methods">Pay from anywhere: South Africa, UAE, US, UK, Australia, India and beyond. Visa, Mastercard, Amex, Apple Pay and Google Pay. Local tax is worked out at checkout and the PDF link is emailed to you straight away.</div>
     </div>
   </div>
 </section>
@@ -307,7 +307,7 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
     <details><summary>How do I get the PDF?</summary><p>Straight after payment, the download link is emailed to you and shown on the confirmation screen.</p></details>
     <details><summary>Will it work in my country?</summary><p>Yes. Every figure is in US dollars and the methods are about people, territory, stock and cash, so they apply to dealer networks anywhere.</p></details>
     <details><summary>Is it only for car dealers?</summary><p>No. It's written for cars, two-wheelers, tractors, LCVs, three-wheelers and EVs.</p></details>
-    <details><summary>How can I pay?</summary><p>Visa, Mastercard, Amex, Apple Pay, Google Pay or PayPal through our secure checkout partner, Lemon Squeezy.</p></details>
+    <details><summary>How can I pay?</summary><p>Visa, Mastercard, Amex, Apple Pay or Google Pay through our secure checkout partner, Gumroad. Prices are shown in your local currency at checkout.</p></details>
     <details><summary>Can I get help applying it to my network?</summary><p>Yes. Dealer dashboards and network reviews are part of what I do at Skill N Success. Get in touch through <a href="/">skillnsuccess.com</a>.</p></details>
   </div>
 </section>
@@ -315,44 +315,40 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
 <footer>
   <div class="wrap">
     <div>© Skill N Success · <a href="/">skillnsuccess.com</a></div>
-    <div>Secure checkout by Lemon Squeezy</div>
+    <div>Secure checkout by Gumroad</div>
   </div>
 </footer>
 
 <div class="sticky" id="sticky">
   <div><b>The Dealer Network Playbook</b><small>Instant PDF · 39 pages</small></div>
-  <a class="btn btn-gold js-buy" href="https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab" data-pos="sticky">US$4 · Buy</a>
+  <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true" data-pos="sticky">US$4 · Buy</a>
 </div>
 
 <script>
 (function(){
-  var DEFAULT_URL = 'https://skillnsuccess.lemonsqueezy.com/checkout/buy/b85f5651-8198-41ff-aebd-5608d8ea16ab';
+  var DEFAULT_URL = 'https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true';
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.js-buy'));
   var params = new URLSearchParams(location.search);
-  var purchased = false;
-
+  
   function track(ev, data){ try { if (window.fbq) fbq('track', ev, data || {}); } catch(e){} }
 
   // Build the checkout link: keep the campaign source so sales can be traced back to the ad.
-  function checkoutUrl(base, overlay){
+  function checkoutUrl(base){
     var u;
     try { u = new URL(base); } catch(e){ u = new URL(DEFAULT_URL); }
+    if (/gumroad\.com/.test(u.hostname)) u.searchParams.set('wanted','true'); // straight to checkout
     ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
-      var v = params.get(k); if (v) u.searchParams.set('checkout[custom]['+k+']', v.slice(0,100));
+      var v = params.get(k); if (v) u.searchParams.set(k, v.slice(0,100));
     });
-    if (overlay) { u.searchParams.set('embed','1'); u.searchParams.set('media','0'); }
     return u.toString();
   }
 
-  function applyUrl(base, overlay){
-    buttons.forEach(function(b){
-      b.href = checkoutUrl(base, overlay);
-      if (overlay) b.classList.add('lemonsqueezy-button');
-    });
+  function applyUrl(base){
+    buttons.forEach(function(b){ b.href = checkoutUrl(base); });
   }
 
   var base = DEFAULT_URL;
-  applyUrl(base, false);
+  applyUrl(base);
 
   buttons.forEach(function(b){
     b.addEventListener('click', function(){
@@ -363,34 +359,19 @@ fbq('track', 'ViewContent', {content_name:'The Dealer Network Playbook', content
   // Use the server-configured checkout link if one is set.
   fetch('/api/config').then(function(r){ return r.json(); }).then(function(c){
     var u = c && c.books && c.books.dealerPlaybook && c.books.dealerPlaybook.checkoutUrl;
-    if (u && /^https:\/\//.test(u)) { base = u; applyUrl(base, !!window.LemonSqueezy); }
+    if (u && /^https:\/\//.test(u)) { base = u; applyUrl(base); }
   }).catch(function(){});
 
-  // Lemon Squeezy overlay: checkout opens on this page, so the Purchase event can fire here.
-  var ls = document.createElement('script');
-  ls.src = 'https://app.lemonsqueezy.com/js/lemon.js';
-  ls.defer = true;
-  ls.onload = function(){
-    if (!/lemonsqueezy\.com/.test(base)) return;
-    applyUrl(base, true);
-    try {
-      window.createLemonSqueezy && window.createLemonSqueezy();
-      window.LemonSqueezy && window.LemonSqueezy.Setup({
-        eventHandler: function(e){
-          if (e && e.event === 'Checkout.Success' && !purchased) {
-            purchased = true;
-            var value = 4;
-            try {
-              var a = e.data && e.data.order && e.data.order.data && e.data.order.data.attributes;
-              if (a && a.total_usd) value = a.total_usd / 100;
-            } catch(err){}
-            track('Purchase', {content_name:'The Dealer Network Playbook', content_ids:['dealer-playbook'], content_type:'product', value:value, currency:'USD', num_items:1});
-          }
-        }
-      });
-    } catch(err){ applyUrl(base, false); }
+  // Gumroad overlay: checkout opens over this page (falls back to a normal link if the script is blocked).
+  // Purchase events are recorded by Gumroad's own Meta Pixel integration (Settings → Third-party analytics).
+  var gr = document.createElement('script');
+  gr.src = 'https://gumroad.com/js/gumroad.js';
+  gr.defer = true;
+  gr.onload = function(){
+    if (!/gumroad\.com/.test(base)) return;
+    buttons.forEach(function(b){ b.classList.add('gumroad-button'); });
   };
-  document.head.appendChild(ls);
+  document.head.appendChild(gr);
 
   // Video: replay button, and pause when off-screen to save data.
   var v = document.getElementById('promo');
