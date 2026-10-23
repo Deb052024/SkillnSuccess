@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solar That Pays — The Solar Payback Playbook for South African Small Businesses | Skill N Success</title>
+<meta name="description" content="How South African small and medium businesses size solar right, claim Section 12B and get their money back fast. 24-page playbook with worked calculations in rand, real 2026 rules and an Excel payback model. US$20." />
+<link rel="canonical" href="https://skillnsuccess.com/solar-that-pays-sa" />
+<meta property="og:title" content="Solar That Pays — make solar pay back for your business" />
+<meta property="og:description" content="Payback, Section 12B, loan vs PPA and battery maths in rand, plus an Excel model. US$20." />
+<meta property="og:image" content="https://skillnsuccess.com/books/solar-sa-cover.webp" />
+<meta property="og:url" content="https://skillnsuccess.com/solar-that-pays-sa" />
+<meta property="og:type" content="product" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1557537809433771');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name:'Solar That Pays South Africa', content_ids:['solar-that-pays-sa'], content_type:'product', value:20, currency:'USD'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1557537809433771&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel -->
+
+<style>
+  :root{
+    --ink:#12172B; --ink-soft:#4B5163; --paper:#F6F3EC; --paper-2:#EFEAE0; --card:#fff;
+    --gold:#C79A4B; --gold-l:#E2B865; --gold-deep:#A67B33; --sage:#3F6B52;
+    --line:rgba(18,23,43,.12); --line-soft:rgba(18,23,43,.07);
+    --shadow:0 1px 2px rgba(18,23,43,.04),0 12px 32px -12px rgba(18,23,43,.18);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,video{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em;margin:0}
+  h1{font-size:clamp(38px,6vw,64px);line-height:1.04}
+  h2{font-size:clamp(28px,4vw,42px);line-height:1.1}
+  h3{font-size:21px;line-height:1.25;font-weight:600}
+  em{font-style:normal;color:var(--gold-deep)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;font:800 17px/1 'Manrope',sans-serif;padding:18px 30px;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+  .btn-gold{background:var(--gold-l);color:var(--ink);box-shadow:0 10px 24px -10px rgba(167,123,51,.7)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-dark{background:var(--ink);color:var(--paper)}
+  .btn-block{width:100%}
+  .muted{color:var(--ink-soft)}
+  section{padding:72px 0}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(246,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:19px;text-decoration:none}
+  .mark{width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--gold) 0 55%,var(--sage) 55% 100%);position:relative;flex:none}
+  .mark::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--paper)}
+  header .btn{padding:11px 18px;font-size:14.5px}
+
+  /* hero */
+  .hero{padding:44px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;grid-template-areas:"head video" "body video";column-gap:56px;align-items:center}
+  .hero-head{grid-area:head;align-self:end}
+  .hero-body{grid-area:body;align-self:start}
+  .hero-video{grid-area:video}
+  .hero p.lead{font-size:19px;color:var(--ink-soft);margin:22px 0 28px;max-width:560px}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+  .trust{font-size:14px;color:var(--ink-soft);margin-top:16px}
+  .trust b{color:var(--ink)}
+  .video-card{position:relative;width:100%;margin-left:auto;border-radius:22px;overflow:hidden;background:var(--ink);box-shadow:0 40px 80px -30px rgba(18,23,43,.55);aspect-ratio:16/9}
+  .video-card video{width:100%;height:100%!important;object-fit:cover}
+  .sound{position:absolute;right:14px;bottom:14px;background:rgba(18,23,43,.72);color:#fff;border:0;border-radius:999px;font:700 13px 'Manrope',sans-serif;padding:9px 14px;cursor:pointer}
+
+  /* problem */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+  .card .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold-deep);margin-bottom:10px}
+  .card p{margin:10px 0 0;color:var(--ink-soft);font-size:15.5px}
+
+  /* stats */
+  .dark{background:var(--ink);color:var(--paper)}
+  .dark .eyebrow{color:var(--gold-l)}
+  .dark em{color:var(--gold-l)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+  .stat{border:1px solid rgba(246,243,236,.14);border-radius:20px;padding:26px 22px;background:rgba(255,255,255,.04)}
+  .stat b{font-family:'Fraunces',serif;font-size:44px;line-height:1;color:var(--gold-l);display:block}
+  .stat span{display:block;margin-top:10px;font-size:15px;color:rgba(246,243,236,.78)}
+  .note{font-size:13px;color:rgba(246,243,236,.55);margin-top:18px}
+
+  /* inside */
+  .inside{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start;margin-top:36px}
+  .books{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .books img{border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line-soft)}
+  ol.chapters{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+  ol.chapters li{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line-soft);font-size:15.5px;font-weight:600}
+  ol.chapters li span{font-family:'IBM Plex Mono',monospace;color:var(--gold-deep);font-weight:500;font-size:13px;padding-top:2px;flex:none}
+
+  /* who */
+  .who{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  .who div{background:var(--paper-2);border-radius:18px;padding:22px;font-weight:700;font-size:16px}
+  .who div small{display:block;font-weight:500;color:var(--ink-soft);font-size:14.5px;margin-top:6px}
+
+  /* author */
+  .author{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;background:var(--card);border:1px solid var(--line-soft);border-radius:24px;padding:34px;box-shadow:var(--shadow);margin-top:30px}
+  .avatar{width:84px;height:84px;border-radius:50%;background:var(--ink);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:32px;font-weight:700}
+  .author ul{margin:14px 0 0;padding-left:20px;color:var(--ink-soft)}
+  .author li{margin:6px 0}
+
+  /* buy */
+  .buy{max-width:620px;margin:0 auto;text-align:center}
+  .buy-card{background:var(--ink);color:var(--paper);border-radius:28px;padding:40px 34px;margin-top:30px;box-shadow:0 40px 80px -30px rgba(18,23,43,.55)}
+  .price{font-family:'Fraunces',serif;font-size:72px;line-height:1;font-weight:700}
+  .price sup{font-size:26px;vertical-align:top;margin-right:4px;color:var(--gold-l)}
+  .buy-card ul{list-style:none;padding:0;margin:26px 0 28px;text-align:left}
+  .buy-card li{padding:9px 0 9px 30px;position:relative;border-top:1px solid rgba(246,243,236,.1);font-size:15.5px;color:rgba(246,243,236,.86)}
+  .buy-card li::before{content:"✓";position:absolute;left:4px;color:var(--gold-l);font-weight:800}
+  .methods{font-size:13.5px;color:rgba(246,243,236,.6);margin-top:16px}
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{font-weight:700;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::after{content:"+";font-size:22px;line-height:1;color:var(--gold-deep)}
+  details[open] summary::after{content:"–"}
+  details p{margin:10px 0 0;color:var(--ink-soft)}
+
+  footer{padding:36px 0 110px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line-soft)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* sticky mobile bar */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);color:var(--paper);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .25s}
+  .sticky.show{transform:none}
+  .sticky b{font-family:'Fraunces',serif;font-size:17px;display:block;line-height:1.2}
+  .sticky small{color:rgba(246,243,236,.65);font-size:12.5px}
+  .sticky .btn{padding:13px 20px;font-size:15px;flex:none}
+
+  @media (max-width:900px){
+    .hero{padding:26px 0 50px}
+    .hero-grid{grid-template-columns:1fr;grid-template-areas:"head" "video" "body";row-gap:22px}
+    .video-card{margin:0 auto;width:100%}
+    .hero p.lead{margin-top:4px}
+    .cards3,.stats{grid-template-columns:1fr 1fr}
+    .cards3 .card:last-child{grid-column:1/-1}
+    .inside{grid-template-columns:1fr}
+    .who{grid-template-columns:1fr 1fr}
+    .sticky{display:flex}
+    section{padding:56px 0}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .cards3,.stats,ol.chapters{grid-template-columns:1fr}
+    .stat b{font-size:40px}
+    .author{grid-template-columns:1fr;padding:26px}
+    .hero-cta .btn{width:100%}
+    header .btn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="mark"></span>Skill N Success</a>
+    <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/solar-that-pays-sa?wanted=true" data-pos="header">Get it · US$20</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-head">
+      <div class="eyebrow">South Africa · For small &amp; medium businesses</div>
+      <h1 style="margin-top:18px;">Make solar <em>pay you back.</em></h1>
+    </div>
+    <div class="hero-body">
+      <p class="lead">Your electricity bill rises every year whether the lights stay on or not. <b>Solar That Pays</b> shows you how to read your bill, size a system to what you actually use, claim the Section 12B tax deduction and choose between cash, a loan or a PPA, with every calculation worked in rand.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/solar-that-pays-sa?wanted=true" data-pos="hero">Get the playbook · US$20</a>
+        <a class="muted" href="#inside" style="font-weight:700;font-size:15px;">See what's inside ↓</a>
+      </div>
+      <div class="trust"><b>Instant PDF + Excel payback model</b> · 24 pages · 11 chapters · Card, Apple Pay or Google Pay</div>
+    </div>
+    <div class="hero-video">
+      <div class="video-card">
+        <video id="promo" src="/books/solar-sa-promo.mp4" poster="/books/solar-sa-promo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="30-second preview of Solar That Pays"></video>
+        <button class="sound" id="soundBtn" type="button" style="right:auto;left:14px">🔊 Tap for sound</button>
+        <button class="sound" id="replay" type="button">↺ Replay</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2 style="margin-top:14px;max-width:760px;">Why so many business owners <em>overpay</em> for solar</h2>
+    <div class="cards3">
+      <div class="card"><div class="num">01</div><h3>Oversized systems</h3><p>Panels you can't use in daylight, with no fair export rate, are capital you paid for and never get back.</p></div>
+      <div class="card"><div class="num">02</div><h3>Quotes built on the wrong rate</h3><p>Divide your whole bill by your units and payback looks a year shorter than it really is. Fixed charges don't go away.</p></div>
+      <div class="card"><div class="num">03</div><h3>Money left on the table</h3><p>Section 12B lets most businesses deduct 100% of a solar system in year one. Many owners never claim it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">Why now</div>
+    <h2 style="margin-top:14px;">The bill keeps rising, <em>with or without load-shedding</em></h2>
+    <div class="stats">
+      <div class="stat"><b>9.01%</b><span>Eskom increase to municipalities from July 2026</span></div>
+      <div class="stat"><b>8.3 GW</b><span>rooftop solar installed in SA, mostly by businesses</span></div>
+      <div class="stat"><b>79%</b><span>of businesses with solar already see measurable savings</span></div>
+      <div class="stat"><b>2.0 yrs</b><span>payback with Section 12B in the book's worked example</span></div>
+    </div>
+    <p class="note">Sources: Eskom/NERSA (2026), Creamer Media (June 2026), Jaltech survey via VUKA Group (Nov 2025). Payback is an illustrative worked example from the book.</p>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="eyebrow">Inside · 24 pages + Excel model</div>
+    <h2 style="margin-top:14px;">Eleven chapters, one question: <em>how fast do I get my money back?</em></h2>
+    <div class="inside">
+      <div class="books">
+        <img src="/books/solar-sa-cover.webp" width="900" height="1274" loading="lazy" alt="Cover of Solar That Pays, South Africa SME Edition">
+        <img src="/books/solar-sa-inside.webp" width="900" height="1274" loading="lazy" alt="A page comparing cash, Section 12B, a loan and a PPA over ten years">
+      </div>
+      <ol class="chapters">
+        <li><span>01</span>The case for solar in 2026</li>
+        <li><span>02</span>Read your bill before you read a quote</li>
+        <li><span>03</span>Sizing and site: infrastructure requirements</li>
+        <li><span>04</span>Payback, Section 12B and how to pay</li>
+        <li><span>05</span>Batteries: when they pay and when they don't</li>
+        <li><span>06</span>Government support, rules and registration</li>
+        <li><span>07</span>Choosing an installer and the contract</li>
+        <li><span>08</span>Caution points: what goes wrong</li>
+        <li><span>09</span>Digital tools: monitor and prove the saving</li>
+        <li><span>10</span>Real South African case studies</li>
+        <li><span>11</span>Scope, challenges and the future</li>
+        <li><span>+</span>30-day action plan and worksheets</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Who it's for</div>
+    <h2 style="margin-top:14px;">For businesses that <em>work in daylight</em></h2>
+    <div class="who">
+      <div>Cafés, bakeries and restaurants<small>Ovens, fridges and coffee machines in sun hours.</small></div>
+      <div>Workshops and small factories<small>Motors and compressors on the day shift.</small></div>
+      <div>Clinics, offices and schools<small>Air-con and computers, closed at night.</small></div>
+      <div>Farms and cold storage<small>Pumps and refrigeration you can schedule.</small></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Free updates and what's next</div>
+    <h2 style="margin-top:14px;">Version 1.0 today, <em>five sector editions</em> planned</h2>
+    <div class="who">
+      <div>Free 1.x updates<small>New tariffs, rules and prices, emailed through Gumroad.</small></div>
+      <div>Farms &amp; agri-processing<small>Pumps, packhouses, ground-mount.</small></div>
+      <div>Retail, restaurants &amp; spaza<small>Small rooftops and critical-load backup.</small></div>
+      <div>Manufacturing, offices, installers<small>Demand charges, schools &amp; clinics, an installer sales kit.</small></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">About the author</div>
+    <div class="author">
+      <div class="avatar">DP</div>
+      <div>
+        <h3>Debasis Panda</h3>
+        <p class="muted" style="margin:6px 0 0;">BI analyst and automation specialist who builds savings dashboards and payback models, with 10+ years running channel networks and investment cases at Mahindra &amp; Mahindra and Bajaj Auto.</p>
+        <ul>
+          <li>Builds Power BI and Excel models that turn bills and meter data into decisions.</li>
+          <li>Writes practical playbooks with every number worked through, so you can redo them with your own.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="buy" class="dark">
+  <div class="wrap buy">
+    <div class="eyebrow" style="justify-content:center;">Get the playbook</div>
+    <h2 style="margin-top:14px;">Check the numbers <em>before you sign a quote</em></h2>
+    <div class="buy-card">
+      <div class="price"><sup>US$</sup>20</div>
+      <div style="color:rgba(246,243,236,.6);font-size:14px;margin-top:6px;">One-time · instant PDF + Excel payback model · free 1.x updates</div>
+      <ul>
+        <li>How to read your bill and size a system to daytime use</li>
+        <li>Payback, Section 12B, loan vs cash vs PPA, worked in rand</li>
+        <li>Installer checklist, contract clauses and 8 caution points</li>
+        <li>Excel model: your payback, IRR and 10-year cash flow in minutes</li>
+      </ul>
+      <a class="btn btn-gold btn-block js-buy" href="https://pandalicious3134.gumroad.com/l/solar-that-pays-sa?wanted=true" data-pos="buy">Buy now · US$20</a>
+      <div class="methods">Pay in rand or US dollars. Visa, Mastercard, Amex, Apple Pay and Google Pay. The download link is emailed to you straight away.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="eyebrow">Questions</div>
+    <h2 style="margin:14px 0 10px;">Good to know</h2>
+    <details><summary>What do I get?</summary><p>A 24-page PDF playbook and an Excel model that calculates your monthly saving, payback, Section 12B tax saving, IRR and a 10-year comparison of cash, loan and PPA from your own bill.</p></details>
+    <details><summary>Are the case studies real?</summary><p>The farm case studies, Cape Town's Cash for Power figures and the Jaltech business survey come from published South African sources listed in the book. "Thandi" is a clearly labelled illustrative business owner used to work through the calculations.</p></details>
+    <details><summary>Is it for homes too?</summary><p>It's written for businesses (Section 12B, business tariffs, PPAs), but the sizing, bill-reading and installer chapters apply to any property.</p></details>
+    <details><summary>Is this tax or financial advice?</summary><p>No. It's practical business education to help you ask the right questions. Confirm Section 12B with your accountant and the technical design with a registered installer.</p></details>
+    <details><summary>How can I pay?</summary><p>Visa, Mastercard, Amex, Apple Pay or Google Pay through our secure checkout partner, Gumroad. Prices are shown in your local currency at checkout.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© Skill N Success · <a href="/">skillnsuccess.com</a></div>
+    <div>Secure checkout by Gumroad</div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div><b>Solar That Pays · SA</b><small>PDF + Excel model</small></div>
+  <a class="btn btn-gold js-buy" href="https://pandalicious3134.gumroad.com/l/solar-that-pays-sa?wanted=true" data-pos="sticky">US$20 · Buy</a>
+</div>
+
+<script>
+(function(){
+  var DEFAULT_URL = 'https://pandalicious3134.gumroad.com/l/solar-that-pays-sa?wanted=true';
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.js-buy'));
+  var params = new URLSearchParams(location.search);
+  
+  function track(ev, data){ try { if (window.fbq) fbq('track', ev, data || {}); } catch(e){} }
+
+  // Build the checkout link: keep the campaign source so sales can be traced back to the ad.
+  function checkoutUrl(base){
+    var u;
+    try { u = new URL(base); } catch(e){ u = new URL(DEFAULT_URL); }
+    if (/gumroad\.com/.test(u.hostname)) u.searchParams.set('wanted','true'); // straight to checkout
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+      var v = params.get(k); if (v) u.searchParams.set(k, v.slice(0,100));
+    });
+    return u.toString();
+  }
+
+  function applyUrl(base){
+    buttons.forEach(function(b){ b.href = checkoutUrl(base); });
+  }
+
+  var base = DEFAULT_URL;
+  applyUrl(base);
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      track('InitiateCheckout', {content_name:'Solar That Pays South Africa', content_ids:['solar-that-pays-sa'], content_type:'product', value:20, currency:'USD', num_items:1});
+    });
+  });
+
+  // Gumroad overlay: checkout opens over this page (falls back to a normal link if the script is blocked).
+  // Purchase events are recorded by Gumroad's own Meta Pixel integration (Settings → Third-party analytics).
+  var gr = document.createElement('script');
+  gr.src = 'https://gumroad.com/js/gumroad.js';
+  gr.defer = true;
+  gr.onload = function(){
+    if (!/gumroad\.com/.test(base)) return;
+    buttons.forEach(function(b){ b.classList.add('gumroad-button'); });
+  };
+  document.head.appendChild(gr);
+
+  // Video: replay button, and pause when off-screen to save data.
+  var v = document.getElementById('promo');
+  document.getElementById('replay').addEventListener('click', function(){ v.currentTime = 0; v.play(); });
+  var sb = document.getElementById('soundBtn');
+  sb.addEventListener('click', function(){
+    v.muted = !v.muted; if (!v.muted) { v.currentTime = 0; v.play(); }
+    sb.textContent = v.muted ? '🔊 Tap for sound' : '🔇 Mute';
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause(); });
+    }, {threshold:.25}).observe(v);
+  }
+
+  // Sticky buy bar on mobile once the hero button scrolls away; hidden at the buy section.
+  var sticky = document.getElementById('sticky');
+  var heroBtn = document.querySelector('.hero .js-buy');
+  var buySec = document.getElementById('buy');
+  function onScroll(){
+    var past = heroBtn.getBoundingClientRect().bottom < 0;
+    var r = buySec.getBoundingClientRect();
+    var atBuy = r.top < innerHeight && r.bottom > 0;
+    sticky.classList.toggle('show', past && !atBuy);
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+</body>
+</html>
