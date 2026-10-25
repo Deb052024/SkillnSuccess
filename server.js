@@ -67,6 +67,8 @@ app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISO
 
 // Serves the marketing site (public/index.html) so the whole product is one deployable app.
 // extensions: ['html'] lets /dealer-playbook serve public/dealer-playbook.html (ad landing page).
+// skillnsuccess.com/books goes to the books section of the home page.
+app.get(['/books', '/books/'], (req, res) => res.redirect(301, '/#books'));
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();

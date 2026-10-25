@@ -197,6 +197,10 @@ td:first-child{font-weight:600;white-space:nowrap}
 .tier b{font:600 1rem/1.3 var(--body)}
 .tier .amt{font:800 1.5rem/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
 .tier span{grid-column:1/-1;font-size:.85rem;color:var(--ink-2)}
+.paybox{margin:16px 0 18px;padding:16px;border:2px solid var(--copper);border-radius:12px;background:var(--bg)}
+.paybox .btn{width:100%}
+.paybox p{margin:10px 0 0;font-size:.85rem;color:var(--ink-2)}
+.sprintpay{display:block;margin-top:10px;font-size:.9rem}
 .offer .photo{border-radius:var(--r);margin-top:8px}
 form{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,28px);display:grid;gap:14px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -254,7 +258,7 @@ html{scroll-behavior:smooth}
     <p class="lede">A career roadmap built around real labs. Write Verilog, catch a real bug, simulate analog circuits, and learn what chip companies check when they hire. Start with a free chapter you can finish in one evening.</p>
     <div class="ctas">
       <a class="btn" href="#offer">Get the free starter chapter</a>
-      <a class="btn ghost" href="#sprint">Take the Silicon Sprint</a>
+      <a class="btn ghost rzp" href="https://rzp.io/rzp/iFjoGwA8" target="_blank" rel="noopener" data-amt="499">Pre-order for ₹499</a>
     </div>
     <ul class="pricebar" aria-label="Pricing">
       <li>Pre-launch <b>₹499</b></li><li>Launch ₹999 · US$19</li><li>Sprint winners <b>12% off</b></li>
@@ -457,13 +461,18 @@ tphl = 80.5 ps   (80 fF load)</div>
 <section id="offer" class="offer"><div class="wrap grid">
   <div>
     <div class="eyebrow">Free chapter today · full book at launch</div>
-    <h2>Join the waitlist and lock the pre-launch price</h2>
+    <h2>Pre-order at ₹499, or start with the free chapter</h2>
     <div class="tiers">
-      <div class="tier hot"><b>Pre-launch, India</b><span class="amt">₹499</span><span>For waitlist members, until the full book launches.</span></div>
+      <div class="tier hot"><b>Pre-launch, India</b><span class="amt">₹499</span><span>Pre-order now, until the full book launches.</span></div>
       <div class="tier"><b>Launch price</b><span class="amt">₹999 · US$19</span><span>India via UPI, cards and net banking (Razorpay). International via PayPal.</span></div>
       <div class="tier"><b>Silicon Sprint winners</b><span class="amt">12% off</span><span>Code SPRINT12 on the launch price: ₹879 or US$16.72.</span></div>
     </div>
+    <div class="paybox">
+      <a class="btn copper rzp" href="https://rzp.io/rzp/iFjoGwA8" target="_blank" rel="noopener" data-amt="499">Pre-order now · Pay ₹499</a>
+      <p>Secure checkout by Razorpay: UPI, cards, net banking and wallets. The book is emailed to you as soon as Part 1 is released. Changed your mind before delivery? Email debasis.panda1985@gmail.com for a full refund.</p>
+    </div>
     <div class="coupon" id="codebox" hidden><span id="codetxt">SPRINT12</span><button type="button" id="copybtn">Copy</button></div>
+    <a class="sprintpay rzp" id="sprintpay" href="https://rzp.io/rzp/6vbJ7fx" target="_blank" rel="noopener" data-amt="879" hidden>Sprint winner checkout: ₹879 (12% off the ₹999 launch price). During pre-launch, ₹499 is the lower price.</a>
     <img class="photo" src="https://images.pexels.com/photos/35216547/pexels-photo-35216547.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Engineering students learning circuit-board repair at an electronics workbench." loading="lazy">
   </div>
   <div>
@@ -494,7 +503,7 @@ tphl = 80.5 ps   (80 fF load)</div>
       <a href="downloads/Break_Into_Chip_Design_Free_Starter_Chapter.pdf" target="_blank" rel="noopener">Starter chapter (PDF, 9 pages)</a>
       <a href="downloads/Break_Into_Chip_Design_Starter_Lab_Manual.pdf" target="_blank" rel="noopener">Lab manual with every file printed in full (PDF)</a>
       <span class="labfiles" id="labfiles">Lab files: <a href="downloads/labs/counter4.v" target="_blank" rel="noopener">counter4.v</a> · <a href="downloads/labs/tb_counter4.v" target="_blank" rel="noopener">tb_counter4.v</a> · <a href="downloads/labs/fifo_buggy.v" target="_blank" rel="noopener">fifo_buggy.v</a> · <a href="downloads/labs/tb_fifo.v" target="_blank" rel="noopener">tb_fifo.v</a> · <a href="downloads/labs/rc_lowpass.cir" target="_blank" rel="noopener">rc_lowpass.cir</a> · <a href="downloads/labs/inverter.cir" target="_blank" rel="noopener">inverter.cir</a></span>
-      <p class="muted">We'll email your ₹499 pre-launch link as soon as Part 1 of the full book is ready.</p>
+      <p class="muted">Want the full book at the pre-launch price? <a class="rzp" href="https://rzp.io/rzp/iFjoGwA8" target="_blank" rel="noopener" data-amt="499">Pre-order for ₹499 on Razorpay</a>.</p>
       <p class="note" id="previewnote" hidden>Preview mode: this copy of the page is not connected to the waitlist, so nothing was sent. Individual lab files download on skillnsuccess.com.</p>
     </div>
   </div>
@@ -506,7 +515,7 @@ tphl = 80.5 ps   (80 fF load)</div>
   <details><summary>I'm in 2nd year. Is this too early?</summary><p>It's a good time. The first phase covers digital logic, CMOS and Verilog basics, which line up with your coursework. Use the flexible pace of 5–7 hours a week.</p></details>
   <details><summary>Will this get me a job?</summary><p>No book can promise that. It gives you a clear plan, real projects and practice for the questions companies ask. Your results depend on the work you put in and on each employer's needs.</p></details>
   <details><summary>Does it cover analog and packaging, or only digital?</summary><p>All of them. Two of the four starter labs are analog, and the full book has chapters on analog and mixed-signal design, physical design and timing, DFT, test and post-silicon validation.</p></details>
-  <details><summary>How does the ₹499 pre-launch price work?</summary><p>Join the waitlist now. When Part 1 of the full book is ready, we email you a ₹499 payment link. After launch, the price is ₹999 in India and US$19 internationally.</p></details>
+  <details><summary>How does the ₹499 pre-launch price work?</summary><p>Pre-order now for ₹499 through Razorpay (UPI, cards, net banking). The book is emailed to you as soon as Part 1 is ready, and you can ask for a full refund any time before delivery. After launch, the price is ₹999 in India and US$19 internationally.</p></details>
   <details><summary>Can I use the Sprint code with the ₹499 offer?</summary><p>No. The 12% Sprint code applies to the launch price. The ₹499 pre-launch price is already the lowest price.</p></details>
 </div></section>
 </main>
@@ -605,7 +614,7 @@ tphl = 80.5 ps   (80 fF load)</div>
       var first=!load("bicd-sprint");if(first)save("bicd-sprint",sscore+"|"+secs);
       var w=el("div",{class:"res"});w.appendChild(el("span",{class:"eyebrow"},"Silicon Sprint result"));
       var h=el("h3",null,sscore+" / 5 in "+fmt(secs));h.style.fontSize="2.2rem";w.appendChild(h);
-      if(sscore>=4){w.appendChild(el("p",null,"You qualify for 12% off the launch price. Your code: SPRINT12"));document.getElementById("codebox").hidden=false;}
+      if(sscore>=4){w.appendChild(el("p",null,"You qualify for 12% off the launch price. Your code: SPRINT12"));document.getElementById("codebox").hidden=false;document.getElementById("sprintpay").hidden=false;}
       else w.appendChild(el("p",{class:"muted"},"So close. Each of these is explained step by step in the starter chapter and the full book. Read the explanations, then practise again."));
       var used=load("bicd-sprint").split("|");
       document.getElementById("sprintline").textContent="Silicon Sprint entry: "+used[0]+"/5 in "+fmt(+used[1])+(+used[0]>=4?" · qualifies for 12% off (SPRINT12)":"");
@@ -629,7 +638,7 @@ tphl = 80.5 ps   (80 fF load)</div>
     sb.appendChild(opts);
   }
   renderSprint();
-  (function(){var prev=load("bicd-sprint");if(prev){var pp=prev.split("|");document.getElementById("sprintline").textContent="Silicon Sprint entry: "+pp[0]+"/5 in "+fmt(+pp[1])+(+pp[0]>=4?" · qualifies for 12% off (SPRINT12)":"");if(+pp[0]>=4)document.getElementById("codebox").hidden=false;}})();
+  (function(){var prev=load("bicd-sprint");if(prev){var pp=prev.split("|");document.getElementById("sprintline").textContent="Silicon Sprint entry: "+pp[0]+"/5 in "+fmt(+pp[1])+(+pp[0]>=4?" · qualifies for 12% off (SPRINT12)":"");if(+pp[0]>=4)document.getElementById("codebox").hidden=false;document.getElementById("sprintpay").hidden=false;}})();
 
   // ---------- Quiz 2: Chip IQ ----------
   var IQ=[
@@ -662,6 +671,7 @@ tphl = 80.5 ps   (80 fF load)</div>
   }
   renderQuiz();
 
+  document.querySelectorAll("a.rzp").forEach(function(a){a.addEventListener("click",function(){try{if(window.fbq)fbq("track","InitiateCheckout",{value:+a.dataset.amt,currency:"INR",content_ids:["break-into-chip-design"],content_type:"product"});}catch(e){}});});
   document.getElementById("copybtn").addEventListener("click",function(){
     var b=this,t=document.getElementById("codetxt");
     function sel(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r);}
