@@ -1,0 +1,24 @@
+* Lab A2: CMOS inverter, VDD = 1.8 V
+* Teaching models (generic level-1 MOSFETs), not a foundry PDK.
+.model nmos_t NMOS (LEVEL=1 VTO=0.45 KP=200u LAMBDA=0.05)
+.model pmos_t PMOS (LEVEL=1 VTO=-0.45 KP=80u LAMBDA=0.05)
+VDD vdd 0 1.8
+VIN in 0 DC 0 PULSE(0 1.8 1n 50p 50p 4n 10n)
+MP out in vdd vdd pmos_t W=2.5u L=0.18u
+MN out in 0 0 nmos_t W=1u L=0.18u
+CL out 0 20f
+.control
+  dc VIN 0 1.8 0.005
+  wrdata inv_vtc.txt v(out)
+  meas dc vm WHEN v(out)=v(in)
+  tran 5p 12n
+  wrdata inv_tran.txt v(in) v(out)
+  meas tran tphl TRIG v(in) VAL=0.9 RISE=1 TARG v(out) VAL=0.9 FALL=1
+  meas tran tplh TRIG v(in) VAL=0.9 FALL=1 TARG v(out) VAL=0.9 RISE=1
+  alter CL 80f
+  tran 5p 12n
+  wrdata inv_tran_80f.txt v(in) v(out)
+  meas tran tphl80 TRIG v(in) VAL=0.9 RISE=1 TARG v(out) VAL=0.9 FALL=1
+  quit
+.endc
+.end

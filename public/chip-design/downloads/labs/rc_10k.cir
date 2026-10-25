@@ -1,0 +1,10 @@
+* Same filter driven at 10 kHz (above cutoff)
+V1 in 0 SIN(0 1 10k)
+R1 in out 1k
+C1 out 0 100n
+.control
+  tran 0.5u 0.6m
+  wrdata rc_tran_10k.txt v(in) v(out)
+  quit
+.endc
+.end

@@ -1,0 +1,14 @@
+* Lab A1: first-order RC low-pass filter, R = 1k, C = 100n
+V1 in 0 DC 0 AC 1 SIN(0 1 1k)
+R1 in out 1k
+C1 out 0 100n
+.control
+  ac dec 50 10 1meg
+  let gain_db = db(v(out))
+  meas ac fc WHEN gain_db=-3.0103
+  wrdata rc_ac.txt gain_db
+  tran 2u 4m
+  wrdata rc_tran_1k.txt v(in) v(out)
+  quit
+.endc
+.end

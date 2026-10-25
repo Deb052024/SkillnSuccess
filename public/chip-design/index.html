@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://skillnsuccess.com/chip-design/">
+<meta property="og:title" content="Break Into Chip Design — free starter chapter">
+<meta property="og:description" content="Real Verilog and analog labs, the 4 career tracks, India salaries and a 90-day plan. Pre-launch ₹499.">
+<meta property="og:image" content="https://skillnsuccess.com/chip-design/img/social_card.png">
+<meta property="og:url" content="https://skillnsuccess.com/chip-design/">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1557537809433771');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name:'Break Into Chip Design', content_ids:['break-into-chip-design'], content_type:'product', value:499, currency:'INR'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1557537809433771&ev=PageView&noscript=1"/></noscript>
+<title>Break Into Chip Design</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A 90-day roadmap for ECE/EEE students and early-career engineers in India: real digital and analog labs, career tracks, salaries, interview prep. Free starter chapter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800;125,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an electronics workbench — concrete-grey ground, PCB green for digital, copper for physical design, violet for analog; real photos carry the atmosphere, mono for anything a simulator printed. */
+:root{
+  --bg:#F2F1EE; --surface:#FFFFFF; --ink:#1E2328; --ink-2:#545B63; --line:#DAD7D0;
+  --pcb:#1F6E4C; --pcb-soft:#E3EFE8; --copper:#B35F27; --copper-soft:#F6E9DE; --analog:#6B46B0; --analog-soft:#EFE9F8;
+  --term:#16191C; --term-ink:#E8E6E1; --pass:#2E8B57; --fail:#C0392B; --photo-shade:18,16,14;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141618; --surface:#1C1F22; --ink:#ECEAE5; --ink-2:#A7ADB3; --line:#2E3236;
+  --pcb:#4FB386; --pcb-soft:#17271F; --copper:#E08A4F; --copper-soft:#2E2119; --analog:#B193E6; --analog-soft:#251D33;
+  --term:#0C0E10; --term-ink:#E8E6E1; --pass:#5CC08A; --fail:#FF7B6E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141618; --surface:#1C1F22; --ink:#ECEAE5; --ink-2:#A7ADB3; --line:#2E3236;
+  --pcb:#4FB386; --pcb-soft:#17271F; --copper:#E08A4F; --copper-soft:#2E2119; --analog:#B193E6; --analog-soft:#251D33;
+  --term:#0C0E10; --term-ink:#E8E6E1; --pass:#5CC08A; --fail:#FF7B6E; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);margin:0}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(48px,7vw,88px)}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-0.01em}
+h1{font-size:clamp(2.3rem,5.6vw,4.2rem);font-weight:800;font-stretch:125%}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;font-stretch:112%}
+h3{font-size:1.15rem;font-weight:600;font-stretch:112%}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 .78rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pcb)}
+.lede{font-size:1.1rem;color:var(--ink-2)}
+.muted{color:var(--ink-2)}
+.small{font-size:.82rem;color:var(--ink-2)}
+.head{display:grid;gap:12px;margin-bottom:32px}
+a{color:var(--pcb)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem/1 var(--body);padding:14px 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.copper{background:var(--copper);border-color:var(--copper);color:#fff}
+.btn:disabled{opacity:.5;cursor:default}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;border-bottom:1px solid var(--line);background:var(--bg)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:12px;gap:12px}
+.brand{font:800 1rem/1 var(--display);font-stretch:112%;color:var(--ink);text-decoration:none}
+.brand span{color:var(--pcb)}
+.top nav{display:flex;gap:18px;align-items:center;font-size:.9rem}
+.top nav a{color:var(--ink-2);text-decoration:none}
+.top nav .btn{padding:10px 16px;font-size:.9rem;color:var(--bg)}
+
+/* hero over a real workshop photo */
+.hero{position:relative;color:#F6F4F0;background:#2A2724 center/cover no-repeat;background-image:linear-gradient(90deg,rgba(var(--photo-shade),.9) 0%,rgba(var(--photo-shade),.72) 45%,rgba(var(--photo-shade),.25) 100%),url("https://images.pexels.com/photos/35216547/pexels-photo-35216547.jpeg?auto=compress&cs=tinysrgb&w=1800");padding-block:clamp(56px,9vw,120px)}
+.hero .copy{display:grid;gap:20px;max-width:640px}
+.hero .eyebrow{color:#9FD8BC}
+.hero .lede{color:#DEDAD3}
+.hero h1 em{font-style:normal;color:#F0A46B}
+.hero .btn{background:#F6F4F0;color:#1E2328;border-color:#F6F4F0}
+.hero .btn.ghost{background:transparent;color:#F6F4F0}
+.pricebar{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.pricebar li{font:500 .82rem/1 var(--mono);padding:9px 11px;border:1px solid rgba(246,244,240,.35);border-radius:6px;background:rgba(var(--photo-shade),.45)}
+.pricebar b{color:#F0A46B;font-weight:500}
+.credit{position:absolute;right:max(12px,env(safe-area-inset-right,0px));bottom:8px;font:400 .68rem/1 var(--mono);color:rgba(246,244,240,.6)}
+
+.stats{border-bottom:1px solid var(--line);background:var(--surface)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:24px 18px;border-left:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.stat:first-child{border-left:0}
+.stat b{font:800 clamp(1.6rem,3vw,2.2rem)/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.stat span{font-size:.86rem;color:var(--ink-2)}
+
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figure img{width:100%;border-radius:var(--r);border:1px solid var(--line);background:var(--surface)}
+figcaption{font-size:.84rem;color:var(--ink-2)}
+.photo{aspect-ratio:4/3;object-fit:cover;max-width:100%}
+
+/* watch */
+.watch{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.watch video{width:100%;aspect-ratio:16/9;border-radius:var(--r);background:var(--term);display:block}
+.watch .side{display:grid;gap:14px}
+
+/* wafer to package strip */
+.journey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.journey figure{position:relative}
+.journey .step{position:absolute;top:10px;left:10px;font:500 .72rem/1 var(--mono);background:var(--surface);color:var(--ink);padding:5px 7px;border-radius:5px;border:1px solid var(--line)}
+.journey h3{font-size:1rem}
+.india{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;border-top:2px solid var(--ink);padding-top:16px}
+.india b{font:500 .78rem/1.6 var(--mono);color:var(--copper);text-transform:uppercase;letter-spacing:.06em}
+
+/* labs */
+.labs{display:grid;gap:52px}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:clamp(20px,3vw,40px);align-items:start}
+.lab .txt{display:grid;gap:12px;min-width:0}
+.tag{justify-self:start;font:500 .74rem/1 var(--mono);letter-spacing:.06em;padding:6px 8px;border-radius:5px}
+.tag.d{background:var(--pcb-soft);color:var(--pcb)}.tag.p{background:var(--copper-soft);color:var(--copper)}.tag.a{background:var(--analog-soft);color:var(--analog)}
+.result{font:500 .82rem/1.5 var(--mono);background:var(--term);color:var(--term-ink);padding:10px 12px;border-radius:8px;overflow-x:auto;white-space:pre}
+.result .ok{color:#7EE29B}.result .bad{color:#FF8A7A}
+.proves{border-left:3px solid var(--line);padding-left:12px;font-size:.93rem;color:var(--ink-2)}
+.proves b{color:var(--ink)}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.app{display:grid;gap:10px;align-content:start}
+.app img{aspect-ratio:3/2;object-fit:cover;border-radius:var(--r);border:1px solid var(--line)}
+.app p{font-size:.92rem;color:var(--ink-2)}
+.app .chips{font:500 .74rem/1.5 var(--mono);color:var(--pcb)}
+
+/* panels, quizzes */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,30px);min-width:0}
+.alt .panel{background:var(--bg)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.dots{display:flex;gap:6px}
+.dots i{width:22px;height:5px;border-radius:3px;background:var(--line)}
+.dots i.on{background:var(--pcb)}
+.q{font:600 1.1rem/1.45 var(--body);margin-bottom:12px}
+.opts{display:grid;gap:10px}
+.opts.grid2{grid-template-columns:1fr 1fr}
+.opt{text-align:left;font:400 1rem/1.4 var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer}
+.alt .opt{background:var(--surface)}
+.opt:hover{border-color:var(--pcb)}
+.opt.right{border-color:var(--pass);background:color-mix(in srgb,var(--pass) 12%,var(--surface))}
+.opt.wrong{border-color:var(--fail);background:color-mix(in srgb,var(--fail) 10%,var(--surface))}
+.opt:disabled{cursor:default}
+.explain{margin-top:12px;font-size:.92rem;color:var(--ink-2)}
+.nextrow{margin-top:16px;display:flex;justify-content:flex-end}
+.two{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:start}
+.res{display:grid;gap:10px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.95rem}
+.kv dt{font:500 .78rem/1.6 var(--mono);color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em}
+.kv dd{margin:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.fig{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:12px;overflow-x:auto;color:var(--ink)}
+.alt .fig{background:var(--surface)}
+.fig svg{display:block;max-width:100%;height:auto;margin:0 auto}
+.code{font:500 .84rem/1.5 var(--mono);background:var(--term);color:var(--term-ink);padding:10px 12px;border-radius:8px;white-space:pre;overflow-x:auto;margin-bottom:12px}
+.timer{font:500 .9rem/1 var(--mono);font-variant-numeric:tabular-nums;color:var(--copper)}
+.rules{display:grid;gap:8px;margin:14px 0 18px;padding-left:18px;color:var(--ink-2);font-size:.95rem}
+.coupon{display:inline-flex;align-items:center;gap:10px;font:500 1.05rem/1 var(--mono);border:1.5px dashed var(--copper);color:var(--copper);padding:10px 14px;border-radius:8px}
+.coupon button{font:500 .78rem/1 var(--mono);background:var(--copper);color:#fff;border:0;border-radius:5px;padding:6px 8px;cursor:pointer}
+
+/* careers */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.93rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .74rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+.dotc{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
+.future{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.future div{border-top:2px solid var(--ink);padding-top:12px;display:grid;gap:6px;align-content:start}
+.future h3{font-size:1rem}
+.future p{font-size:.9rem;color:var(--ink-2)}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.phase{padding:20px;border-left:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.phase:first-child{border-left:0}
+.phase .days{font:500 .78rem/1 var(--mono);color:var(--pcb)}
+.phase.last{background:var(--pcb-soft)}
+.phase ul{margin:0;padding-left:18px;font-size:.92rem;color:var(--ink-2)}
+.gate{font:500 .8rem/1.4 var(--mono);border-top:1px dashed var(--line);padding-top:10px;margin-top:4px}
+.nextphase{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.nextphase b{font:500 .78rem/1.6 var(--mono);color:var(--copper);text-transform:uppercase;letter-spacing:.06em}
+
+/* inside */
+.inside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.inside div{background:var(--surface);padding:20px;display:grid;gap:6px;align-content:start}
+.inside .n{font:800 1.6rem/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.inside p{font-size:.92rem;color:var(--ink-2)}
+
+/* offer */
+.offer .grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(24px,4vw,56px);align-items:start}
+.tiers{display:grid;gap:10px;margin:18px 0}
+.tier{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg)}
+.tier.hot{border:2px solid var(--copper);background:var(--copper-soft)}
+.tier b{font:600 1rem/1.3 var(--body)}
+.tier .amt{font:800 1.5rem/1 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.tier span{grid-column:1/-1;font-size:.85rem;color:var(--ink-2)}
+.offer .photo{border-radius:var(--r);margin-top:8px}
+form{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,28px);display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font:500 .86rem/1.3 var(--body);min-width:0}
+input,select{font:400 1rem/1.3 var(--body);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;width:100%;min-width:0}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.86rem;color:var(--ink-2)}
+.check input{width:18px;height:18px;margin-top:2px;flex:none}
+.err{color:var(--fail);font-size:.86rem}
+.done{display:grid;gap:12px}
+.done a{font-weight:600}
+.note{font:500 .78rem/1.5 var(--mono);background:var(--copper-soft);color:var(--ink);padding:10px 12px;border-radius:8px}
+
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{font:600 1.05rem/1.4 var(--body);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 1.2rem/1 var(--mono);color:var(--pcb)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--ink-2)}
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:.84rem;color:var(--ink-2)}
+footer .wrap{display:grid;gap:8px}
+
+@media (max-width:900px){
+  .watch,.lab,.two,.offer .grid{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .journey,.future{grid-template-columns:1fr 1fr}
+  .plan{grid-template-columns:1fr 1fr}.phase:nth-child(3){border-left:0}.phase:nth-child(n+3){border-top:1px solid var(--line)}
+  .inside{grid-template-columns:1fr 1fr}
+  .apps{grid-template-columns:1fr 1fr}
+  .top nav a:not(.btn){display:none}
+}
+@media (max-width:560px){
+  .future,.plan,.inside,.row,.apps,.opts.grid2{grid-template-columns:1fr}
+  .phase{border-left:0;border-top:1px solid var(--line)}.phase:first-child{border-top:0}
+  .india,.nextphase{grid-template-columns:1fr}
+}
+.ph-missing{display:grid;place-items:center;aspect-ratio:4/3;border:1px dashed var(--line);border-radius:var(--r);background:repeating-linear-gradient(135deg,var(--surface) 0 10px,var(--bg) 10px 20px);color:var(--ink-2);font:500 .78rem/1.4 var(--mono);text-align:center;padding:12px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">Skill N <span>Success</span></a>
+  <nav aria-label="Sections"><a href="#labs">Labs</a><a href="#sprint">Silicon Sprint</a><a href="#offer">Price</a><a class="btn" href="#offer">Free chapter</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div class="copy">
+    <div class="eyebrow">For ECE &amp; EEE students and early-career engineers in India</div>
+    <h1>Break into chip design in <em>90 days</em></h1>
+    <p class="lede">A career roadmap built around real labs. Write Verilog, catch a real bug, simulate analog circuits, and learn what chip companies check when they hire. Start with a free chapter you can finish in one evening.</p>
+    <div class="ctas">
+      <a class="btn" href="#offer">Get the free starter chapter</a>
+      <a class="btn ghost" href="#sprint">Take the Silicon Sprint</a>
+    </div>
+    <ul class="pricebar" aria-label="Pricing">
+      <li>Pre-launch <b>₹499</b></li><li>Launch ₹999 · US$19</li><li>Sprint winners <b>12% off</b></li>
+    </ul>
+  </div>
+  <span class="credit">Photo: Pexels</span>
+</div></section>
+
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>85,000</b><span>chip-design engineers India aims to train under Chips to Startups</span></div>
+  <div class="stat"><b>5,000</b><span>direct jobs expected at peak at Micron's Sanand chip-packaging plant</span></div>
+  <div class="stat"><b>₹6–12 LPA</b><span>typical fresher range for RTL and physical design roles in India</span></div>
+  <div class="stat"><b>₹0</b><span>spent on tools: every lab runs on free software</span></div>
+</div></div>
+
+<section id="watch"><div class="wrap watch">
+  <div>
+    <video src="media/chip_design_lab_tour.mp4" poster="img/video_poster.png" controls playsinline preload="metadata" aria-label="53-second tour of the four starter labs, with music"></video>
+  </div>
+  <div class="side">
+    <div class="eyebrow">53-second lab tour · sound on</div>
+    <h2>See the four labs before you sign up</h2>
+    <p class="muted">Two digital labs and two analog labs, each with the real output a simulator printed. No stock screenshots.</p>
+    <figure><img class="photo" src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?w=1200&q=75&auto=format&fit=crop" alt="A breadboard circuit with jumper wires next to a digital multimeter on a workbench." loading="lazy"><figcaption>The bench version: every simulation in the book has a cheap breadboard experiment you can try.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="flow" class="alt"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">From design to factory to package</div>
+    <h2>Every box is a team. Every team is a job title.</h2>
+    <p class="lede">Engineers design the chip in software. A fab prints it onto silicon wafers. Packaging plants cut, mount, connect and test each chip. India is building all three, and each stage hires engineers.</p>
+  </div>
+  <figure><img src="img/chip_flow.png" alt="Chip flow: spec, RTL design, verification, synthesis, physical design, sign-off and tape-out, then fab and packaging, then test; analog designed in parallel." loading="lazy"></figure>
+  <div class="journey">
+    <figure><span class="step">1 · Wafer</span><img class="photo" src="https://images.unsplash.com/photo-1587845323226-bad89242c735?w=1000&q=75&auto=format&fit=crop" alt="A silicon wafer covered in a grid of iridescent chip dies." loading="lazy"><h3>Hundreds of chips per wafer</h3><figcaption>A fab builds every chip on the wafer at once, layer by layer.</figcaption></figure>
+    <figure><span class="step">2 · Die attach</span><img class="photo" src="https://images.unsplash.com/photo-1640955785023-1854685dae05?w=1000&q=75&auto=format&fit=crop" alt="Tweezers placing a small black chip onto a green circuit board." loading="lazy"><h3>Cut, mount, connect</h3><figcaption>Each die is cut out, mounted, and wired or bumped to its package.</figcaption></figure>
+    <figure><span class="step">3 · Package</span><img class="photo" src="https://images.unsplash.com/photo-1675602488512-bdd631490fcb?w=1000&q=75&auto=format&fit=crop" alt="Close-up of a packaged computer chip on a printed circuit board." loading="lazy"><h3>Sealed, marked, tested</h3><figcaption>The package protects the die, carries heat away, and links it to the board.</figcaption></figure>
+    <figure><span class="step">4 · Assembly line</span><img class="photo" src="https://images.pexels.com/photos/5554948/pexels-photo-5554948.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Rows of electronic circuit boards in a production setting." loading="lazy"><h3>Into real products</h3><figcaption>Boards with the chips are built into phones, cars and servers.</figcaption></figure>
+  </div>
+  <div class="india"><b>India, 2026</b><p class="muted">Micron's ATMP (assembly, test, marking and packaging) plant in Sanand, Gujarat opened on 28 February 2026 to assemble and test DRAM and NAND memory, with about 5,000 direct jobs expected at peak. Packaging plants from Kaynes, CG Power and Tata (Assam) are next. Packaging and test need engineers who understand both the chip and the physics, which is why the book covers analog, test and DFT as well as digital.</p></div>
+</div></section>
+
+<section id="labs"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Experiments inside the free chapter</div>
+    <h2>Four labs. Real simulator output.</h2>
+    <p class="lede">Every waveform and number below came from running the lab files with Icarus Verilog and ngspice. You get the same files, so you can reproduce each result on your laptop or in a browser.</p>
+  </div>
+  <div class="labs">
+    <article class="lab">
+      <div class="txt">
+        <span class="tag d">LAB D1 · DIGITAL · RTL DESIGN</span>
+        <h3>A 4-bit counter, and the test that proves it</h3>
+        <p class="muted">Count 0 to 15, wrap to 0, and restart cleanly when reset fires mid-count. The testbench checks every clock edge against a reference model.</p>
+        <div class="result">$ vvp sim
+<span class="ok">RESULT: PASS - reset and rollover verified (25 checks)</span></div>
+        <p class="proves"><b>What it proves to a recruiter:</b> you write clean sequential logic and you test edge cases, not just the easy path.</p>
+      </div>
+      <figure><img src="img/lab_d1_counter.png" alt="Waveform of clock, reset and a 4-bit count rising 0 to 15, rolling over to 0, and clearing on a mid-run reset." loading="lazy"></figure>
+    </article>
+    <article class="lab">
+      <div class="txt">
+        <span class="tag d">LAB D2 · DIGITAL · VERIFICATION</span>
+        <h3>Find the hidden FIFO bug</h3>
+        <p class="muted">A 4-entry buffer passes every normal test. Write five values into it and the buggy design silently overwrites the oldest one. One condition fixes it.</p>
+        <div class="result">READ  50  expected 10  <span class="bad">&lt;-- MISMATCH</span>
+<span class="bad">RESULT: FAIL - 1 mismatches at the full boundary</span>
+<span class="ok">RESULT: PASS - full-boundary test passed</span>   (fixed)</div>
+        <p class="proves"><b>Why it matters:</b> this is the daily job of a verification engineer, the largest hiring track.</p>
+      </div>
+      <figure><img src="img/lab_d2_fifo.png" alt="Two terminal logs: the buggy FIFO reads 50 where 10 was expected; the fixed FIFO passes." loading="lazy"></figure>
+    </article>
+    <article class="lab">
+      <div class="txt">
+        <span class="tag a">LAB A1 · ANALOG · CIRCUITS</span>
+        <h3>An RC filter where theory meets simulation</h3>
+        <p class="muted">R = 1 kΩ, C = 100 nF. The formula 1/(2πRC) predicts a 1,591.5 Hz cutoff. The simulator measured it.</p>
+        <div class="result">$ ngspice -b rc_lowpass.cir
+<span class="ok">fc = 1.591551e+03</span>   (1,591.6 Hz)</div>
+        <p class="proves"><b>Where it lives:</b> in front of every microphone, touchscreen and sensor that feeds an analog-to-digital converter.</p>
+      </div>
+      <figure><img src="img/lab_a1_rc.png" alt="Bode plot with the -3 dB point at 1.59 kHz, and time plots: a 1 kHz sine passes, a 10 kHz sine is strongly reduced." loading="lazy"></figure>
+    </article>
+    <article class="lab">
+      <div class="txt">
+        <span class="tag p">LAB A2 · ANALOG MEETS DIGITAL · PHYSICAL DESIGN</span>
+        <h3>Inside a logic gate: the CMOS inverter</h3>
+        <p class="muted">Every digital gate is an analog circuit. Balance the transistors and it switches at exactly half the supply. Make its load four times heavier and watch it slow down.</p>
+        <div class="result">vm   = 0.900 V
+tphl = 29.6 ps   (20 fF load)
+tphl = 80.5 ps   (80 fF load)</div>
+        <p class="proves"><b>The bridge:</b> this effect is what physical-design and timing engineers fight every day.</p>
+      </div>
+      <figure><img src="img/lab_a2_inverter.png" alt="Inverter transfer curve switching at 0.90 V, and output transitions showing 30 ps delay at 20 fF and 80 ps at 80 fF." loading="lazy"></figure>
+    </article>
+  </div>
+</div></section>
+
+<section id="apps" class="alt"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Where your chips end up</div>
+    <h2>Every lab maps to a product you use</h2>
+  </div>
+  <div class="apps">
+    <article class="app"><img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?w=1000&q=75&auto=format&fit=crop" alt="A technician working on the circuit board of an opened smartphone." loading="lazy"><h3>Phones</h3><p>An application processor, modem, power-management chip and camera sensor, each designed by separate teams.</p><span class="chips">RTL · verification · analog front ends</span></article>
+    <article class="app"><img src="https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?w=1000&q=75&auto=format&fit=crop" alt="A charging cable plugged into an electric car." loading="lazy"><h3>Electric vehicles</h3><p>Battery monitoring, motor control and radar chips, where precise analog and safety-checked digital logic meet.</p><span class="chips">Mixed-signal · power · test</span></article>
+    <article class="app"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=75&auto=format&fit=crop" alt="Macro photo of a processor on a dark circuit board." loading="lazy"><h3>AI computing</h3><p>Accelerator chips with billions of transistors, where timing closure and verification teams grow fastest.</p><span class="chips">Physical design · STA · verification</span></article>
+  </div>
+</div></section>
+
+<section id="track"><div class="wrap two">
+  <div class="head" style="margin:0">
+    <div class="eyebrow">Quiz 1 · Find your track · 4 questions</div>
+    <h2>Digital or analog? Pick by what you enjoy.</h2>
+    <p class="lede">RTL design, verification, physical design and analog are four very different days at work. Answer four quick questions to see which fits you, and which lab to start with.</p>
+    <figure><img class="photo" src="https://images.pexels.com/photos/35157345/pexels-photo-35157345.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="An engineer using a microscope to inspect a circuit board at an electronics bench." loading="lazy"><figcaption>Bench inspection: one of many skills shared by analog, test and packaging roles.</figcaption></figure>
+  </div>
+  <div class="panel" id="finder" aria-live="polite"></div>
+</div></section>
+
+<section id="careers" class="alt"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Jobs, pay and where demand is heading</div>
+    <h2>What each track pays, and what companies check</h2>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Track</th><th>Your day</th><th>Fresher pay in India</th><th>Recruiters check for</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dotc" style="background:var(--pcb)"></span>RTL design</td><td>Write Verilog for blocks: state machines, FIFOs, bus interfaces</td><td>₹6–8 LPA</td><td>Verilog, digital logic, clean synthesisable code</td></tr>
+      <tr><td><span class="dotc" style="background:var(--pcb)"></span>Design verification</td><td>Build testbenches, hunt bugs, measure coverage</td><td>Tracks RTL design</td><td>SystemVerilog, testbenches, OOP, Python or Perl</td></tr>
+      <tr><td><span class="dotc" style="background:var(--copper)"></span>Physical design / STA</td><td>Floorplan, place, route and close timing with scripts</td><td>₹6–12 LPA</td><td>Static timing, DRC/LVS, Tcl scripting</td></tr>
+      <tr><td><span class="dotc" style="background:var(--analog)"></span>Analog &amp; mixed-signal</td><td>Design amplifiers, data converters, PLLs, power circuits</td><td>Premium over digital generalists</td><td>MOSFET and op-amp design, SPICE</td></tr>
+      <tr><td><span class="dotc" style="background:var(--ink-2)"></span>Packaging &amp; test</td><td>Assemble, test and qualify chips at ATMP/OSAT plants</td><td>Varies by plant and role</td><td>Test basics, measurement, data analysis, DFT</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small" style="margin-top:10px">Pay source: Futurense, chip design engineer salaries in India (2026). Top MNC offers run higher (Intel ₹18–24 LPA, NVIDIA ₹22–28 LPA including stock). Pay varies by city, company and skills. Hiring in India includes Intel, NVIDIA, Qualcomm, Texas Instruments, Samsung, AMD, TSMC and Saankhya Labs.</p>
+  <div class="future">
+    <div><h3>AI accelerators</h3><p>Custom silicon for AI keeps verification and physical-design teams growing fastest.</p></div>
+    <div><h3>Automotive and EV</h3><p>Battery, motor-control and radar chips need analog and mixed-signal skills.</p></div>
+    <div><h3>Chiplets and packaging</h3><p>Chips built from smaller dies create roles in integration, test and signal integrity.</p></div>
+    <div><h3>Low-power edge devices</h3><p>Billions of battery devices keep low-power design and analog front ends in demand.</p></div>
+  </div>
+</div></section>
+
+<section id="plan"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">The 90-day plan</div>
+    <h2>Four phases, each ending in a checkpoint you can show</h2>
+    <p class="lede">About 10–12 hours a week. Students with exams can take the flexible pace of 5–7 hours a week and finish in about five months.</p>
+  </div>
+  <div class="plan">
+    <div class="phase"><span class="days">DAYS 1–21</span><h3>Foundations</h3><ul><li>Logic, CMOS, timing</li><li>Verilog basics, first simulation</li></ul><div class="gate">✓ 50 HDLBits problems + an FSM project</div></div>
+    <div class="phase"><span class="days">DAYS 22–49</span><h3>Track deep dive</h3><ul><li>Verification, physical design or analog</li><li>Linux, Python, Tcl</li></ul><div class="gate">✓ One track lab + one useful script</div></div>
+    <div class="phase"><span class="days">DAYS 50–77</span><h3>Portfolio</h3><ul><li>Two projects, tested and written up</li><li>Waveforms and reports on GitHub</li></ul><div class="gate">✓ 2 projects on GitHub with READMEs</div></div>
+    <div class="phase last"><span class="days">DAYS 78–90</span><h3>Get hired</h3><ul><li>CV, LinkedIn, outreach</li><li>7-day interview sprint</li></ul><div class="gate">✓ CV live, 20 applications, 1 mock interview</div></div>
+  </div>
+  <div class="nextphase"><b>After day 90</b><p class="muted">Next phase of skilling: UVM and formal verification for DV, low-power and timing closure for physical design, data converters and PLLs for analog, and a tiny design on real silicon through a shared shuttle such as Tiny Tapeout.</p></div>
+</div></section>
+
+<section id="sprint" class="alt"><div class="wrap two">
+  <div class="head" style="margin:0">
+    <div class="eyebrow">Competition · Silicon Sprint</div>
+    <h2>Solve 5 small design problems. Win 12% off.</h2>
+    <p class="lede">Each problem is a small circuit or code snippet, the kind you meet in a first-round chip interview. The clock runs from your first problem.</p>
+    <ul class="rules">
+      <li>Score 4 or 5 out of 5 to unlock code <b>SPRINT12</b>: 12% off the launch price (₹879 instead of ₹999, or US$16.72 instead of US$19).</li>
+      <li>Enter your sprint score with your sign-up. The fastest perfect scores each week get a shout-out on our Instagram.</li>
+      <li>One attempt counts per email. Calculator and paper allowed.</li>
+    </ul>
+  </div>
+  <div class="panel" id="sprintbox" aria-live="polite"></div>
+</div></section>
+
+<section id="iq"><div class="wrap two">
+  <div class="head" style="margin:0">
+    <div class="eyebrow">Quiz 2 · Chip IQ warm-up · 5 questions</div>
+    <h2>How well did you read the labs?</h2>
+    <p class="lede">A quick warm-up drawn from the four starter labs, with the reasoning shown after each answer.</p>
+  </div>
+  <div class="panel" id="quiz" aria-live="polite"></div>
+</div></section>
+
+<section id="inside" class="alt"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">The full book · Part 2 of the launch</div>
+    <h2>Text, diagrams, lab output, audio and video in one kit</h2>
+    <p class="lede">Each chapter follows the same pattern: a plain-English explanation, a real-world example, a lab you can run, a recruiter's view, and a five-question self-check.</p>
+  </div>
+  <div class="inside">
+    <div><span class="n">20</span><h3>Chapters</h3><p>From how a chip works to your first offer, in five parts.</p></div>
+    <div><span class="n">4+10</span><h3>Labs and projects</h3><p>Guided labs with expected outputs, plus 10 portfolio projects ranked by difficulty.</p></div>
+    <div><span class="n">12</span><h3>Audio summaries</h3><p>5–8 minute recaps for revision on your commute.</p></div>
+    <div><span class="n">10</span><h3>Video lessons</h3><p>Tool setup, coding, debugging and documenting a project.</p></div>
+    <div><span class="n">150</span><h3>Interview questions</h3><p>Each with the reasoning, a common wrong answer and the likely follow-up.</p></div>
+    <div><span class="n">1</span><h3>Workbook</h3><p>Track finder, 90-day tracker, evidence map, CV and README templates.</p></div>
+  </div>
+</div></section>
+
+<section id="offer" class="offer"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">Free chapter today · full book at launch</div>
+    <h2>Join the waitlist and lock the pre-launch price</h2>
+    <div class="tiers">
+      <div class="tier hot"><b>Pre-launch, India</b><span class="amt">₹499</span><span>For waitlist members, until the full book launches.</span></div>
+      <div class="tier"><b>Launch price</b><span class="amt">₹999 · US$19</span><span>India via UPI, cards and net banking (Razorpay). International via PayPal.</span></div>
+      <div class="tier"><b>Silicon Sprint winners</b><span class="amt">12% off</span><span>Code SPRINT12 on the launch price: ₹879 or US$16.72.</span></div>
+    </div>
+    <div class="coupon" id="codebox" hidden><span id="codetxt">SPRINT12</span><button type="button" id="copybtn">Copy</button></div>
+    <img class="photo" src="https://images.pexels.com/photos/35216547/pexels-photo-35216547.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Engineering students learning circuit-board repair at an electronics workbench." loading="lazy">
+  </div>
+  <div>
+    <form id="wl" novalidate>
+      <div class="row">
+        <label for="f-name">Full name<input id="f-name" autocomplete="name" required></label>
+        <label for="f-email">Email<input id="f-email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row">
+        <label for="f-wa">WhatsApp number (optional)<input id="f-wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91"></label>
+        <label for="f-status">I am<select id="f-status" required>
+          <option value="">Choose one</option><option>Student, 1st or 2nd year</option><option>Student, 3rd year</option><option>Student, final year</option><option>Graduate, looking for first job</option><option>Working, 0–3 years</option><option>Working, switching to chip design</option></select></label>
+      </div>
+      <div class="row">
+        <label for="f-org">College or company<input id="f-org" autocomplete="organization"></label>
+        <label for="f-track">Track I'm leaning towards<select id="f-track">
+          <option value="">Not sure yet</option><option>RTL design</option><option>Design verification</option><option>Physical design / STA</option><option>Analog &amp; mixed-signal</option><option>Packaging &amp; test</option></select></label>
+      </div>
+      <p class="small" id="sprintline">Silicon Sprint: not taken yet. <a href="#sprint">Take it</a> to qualify for 12% off.</p>
+      <label class="check" for="f-ok"><input id="f-ok" type="checkbox" required> I agree to receive emails about this book from Skill N Success. I can unsubscribe any time.</label>
+      <div class="err" id="err" hidden></div>
+      <button class="btn copper" type="submit" id="submit">Send me the free chapter</button>
+      <p class="small">We never share your details.</p>
+    </form>
+    <div class="done panel" id="done" hidden>
+      <h3>You're on the list.</h3>
+      <p class="muted">Your free downloads:</p>
+      <a href="downloads/Break_Into_Chip_Design_Free_Starter_Chapter.pdf" target="_blank" rel="noopener">Starter chapter (PDF, 9 pages)</a>
+      <a href="downloads/Break_Into_Chip_Design_Starter_Lab_Manual.pdf" target="_blank" rel="noopener">Lab manual with every file printed in full (PDF)</a>
+      <span class="labfiles" id="labfiles">Lab files: <a href="downloads/labs/counter4.v" target="_blank" rel="noopener">counter4.v</a> · <a href="downloads/labs/tb_counter4.v" target="_blank" rel="noopener">tb_counter4.v</a> · <a href="downloads/labs/fifo_buggy.v" target="_blank" rel="noopener">fifo_buggy.v</a> · <a href="downloads/labs/tb_fifo.v" target="_blank" rel="noopener">tb_fifo.v</a> · <a href="downloads/labs/rc_lowpass.cir" target="_blank" rel="noopener">rc_lowpass.cir</a> · <a href="downloads/labs/inverter.cir" target="_blank" rel="noopener">inverter.cir</a></span>
+      <p class="muted">We'll email your ₹499 pre-launch link as soon as Part 1 of the full book is ready.</p>
+      <p class="note" id="previewnote" hidden>Preview mode: this copy of the page is not connected to the waitlist, so nothing was sent. Individual lab files download on skillnsuccess.com.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq" class="alt"><div class="wrap" style="max-width:820px">
+  <div class="head"><div class="eyebrow">Questions</div><h2>Before you sign up</h2></div>
+  <details><summary>Do I need paid tools like Cadence or Synopsys?</summary><p>No. Every lab uses free software: Icarus Verilog, ngspice, Yosys and an open-source layout flow. The Verilog labs also run in a browser on EDA Playground, with nothing to install.</p></details>
+  <details><summary>I'm in 2nd year. Is this too early?</summary><p>It's a good time. The first phase covers digital logic, CMOS and Verilog basics, which line up with your coursework. Use the flexible pace of 5–7 hours a week.</p></details>
+  <details><summary>Will this get me a job?</summary><p>No book can promise that. It gives you a clear plan, real projects and practice for the questions companies ask. Your results depend on the work you put in and on each employer's needs.</p></details>
+  <details><summary>Does it cover analog and packaging, or only digital?</summary><p>All of them. Two of the four starter labs are analog, and the full book has chapters on analog and mixed-signal design, physical design and timing, DFT, test and post-silicon validation.</p></details>
+  <details><summary>How does the ₹499 pre-launch price work?</summary><p>Join the waitlist now. When Part 1 of the full book is ready, we email you a ₹499 payment link. After launch, the price is ₹999 in India and US$19 internationally.</p></details>
+  <details><summary>Can I use the Sprint code with the ₹499 offer?</summary><p>No. The 12% Sprint code applies to the launch price. The ₹499 pre-launch price is already the lowest price.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span><b>Break Into Chip Design</b> by Debasis Panda · Skill N Success · B.Tech, Electrical &amp; Electronics Engineering</span>
+  <span>Sources: India Semiconductor Mission (Chips to Startups); Micron Sanand ATMP inauguration, 28 Feb 2026; Futurense salary survey 2026. Photos: Unsplash and Pexels (free licence). Educational resource, not a job-placement guarantee.</span>
+</div></footer>
+
+<script>
+(function(){
+  // Set this to your Google Apps Script web-app URL to start collecting sign-ups.
+  var WAITLIST_ENDPOINT = "";
+  var LIVE = /(^|\.)skillnsuccess\.com$/.test(location.hostname);
+  function el(tag,attrs,text){var e=document.createElement(tag);if(attrs)for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+  function dots(n,i){var d=el("div",{class:"dots","aria-hidden":"true"});for(var k=0;k<n;k++){var x=el("i");if(k<=i)x.className="on";d.appendChild(x);}return d;}
+  function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function svg(markup){var w=el("div",{class:"fig"});w.innerHTML=markup;return w;}
+  function codeblock(t){return el("div",{class:"code"},t);}
+
+  // Photos load on skillnsuccess.com; in a preview without them, show a labelled placeholder instead of a broken image.
+  [].forEach.call(document.querySelectorAll('img[src^="photos/"]'),function(img){
+    function swap(){var d=el("div",{class:"ph-missing",role:"img","aria-label":img.alt},"Photo: "+img.alt);img.replaceWith(d);}
+    if(img.complete&&img.naturalWidth===0)swap();else img.addEventListener("error",swap);
+  });
+
+  // ---------- Quiz 1: Track finder ----------
+  var TRACKS={
+    rtl:{name:"RTL design",color:"var(--pcb)",day:"Writing Verilog that turns a spec into working logic.",pay:"₹6–8 LPA",lab:"Lab D1: the 4-bit counter",proj:"A UART transmitter, then a RISC-V core"},
+    dv:{name:"Design verification",color:"var(--pcb)",day:"Building testbenches that try to break the design before silicon.",pay:"Tracks RTL design",lab:"Lab D2: the FIFO bug hunt",proj:"A FIFO testbench with coverage, then cocotb in Python"},
+    pd:{name:"Physical design / STA",color:"var(--copper)",day:"Turning logic into layout and making it fast enough, with scripts.",pay:"₹6–12 LPA",lab:"Lab A2: delay versus load",proj:"Take a small design through an open RTL-to-layout flow"},
+    an:{name:"Analog & mixed-signal",color:"var(--analog)",day:"Designing the circuits that meet the physical world.",pay:"Premium over digital generalists",lab:"Lab A1: the RC filter",proj:"A current mirror, then a two-stage op-amp in SPICE"}
+  };
+  var FQ=[
+    {q:"In a group project, which part do you grab first?",o:[["Writing the logic that makes it work","rtl"],["Testing it and finding what breaks","dv"],["Making it faster, smaller, fit the board","pd"],["The sensors, power and real circuits","an"]]},
+    {q:"Which subject did you enjoy most?",o:[["Digital electronics","rtl"],["Programming in C or Python","dv"],["Algorithms and optimisation","pd"],["Analog electronics and network theory","an"]]},
+    {q:"Something stops working. You first…",o:[["Rewrite the logic more cleanly","rtl"],["Build a test that reproduces it","dv"],["Check the numbers and reports","pd"],["Put a meter or scope on it","an"]]},
+    {q:"Your ideal day at work involves…",o:[["Designing a new block from a spec","rtl"],["Breaking things on purpose","dv"],["Tuning scripts to hit a target","pd"],["Simulating transistors and waveforms","an"]]}
+  ];
+  var finder=document.getElementById("finder"),fi=0,tally={};
+  function renderFinder(){
+    finder.innerHTML="";
+    if(fi>=FQ.length){
+      var best=Object.keys(tally).sort(function(a,b){return tally[b]-tally[a]})[0]||"dv",t=TRACKS[best];
+      var box=el("div",{class:"res"});box.appendChild(el("span",{class:"eyebrow"},"Your best-fit track"));
+      var h=el("h3",null,t.name);h.style.color=t.color;h.style.fontSize="1.6rem";box.appendChild(h);
+      box.appendChild(el("p",{class:"muted"},t.day));
+      var kv=el("dl",{class:"kv"});[["Fresher pay",t.pay],["Start with",t.lab],["First project",t.proj]].forEach(function(p){kv.appendChild(el("dt",null,p[0]));kv.appendChild(el("dd",null,p[1]));});box.appendChild(kv);
+      var row=el("div",{class:"ctas"});row.style.marginTop="8px";row.appendChild(el("a",{class:"btn",href:"#sprint"},"Now try the Silicon Sprint"));
+      var r=el("button",{class:"btn ghost",type:"button"},"Retake");r.onclick=function(){fi=0;tally={};renderFinder();};row.appendChild(r);
+      box.appendChild(row);finder.appendChild(box);document.getElementById("f-track").value=t.name;save("bicd-track",best);return;
+    }
+    var q=FQ[fi],hd=el("div",{class:"qhead"});hd.appendChild(el("span",{class:"eyebrow"},"Question "+(fi+1)+" of "+FQ.length));hd.appendChild(dots(FQ.length,fi));
+    finder.appendChild(hd);finder.appendChild(el("div",{class:"q"},q.q));
+    var opts=el("div",{class:"opts"});q.o.forEach(function(o){var b=el("button",{class:"opt",type:"button"},o[0]);b.onclick=function(){tally[o[1]]=(tally[o[1]]||0)+1;fi++;renderFinder();};opts.appendChild(b);});
+    finder.appendChild(opts);
+  }
+  renderFinder();
+
+  // ---------- Competition: Silicon Sprint ----------
+  var GATES='<svg viewBox="0 0 520 170" width="520" role="img" aria-label="A and B feed an AND gate; its output and C feed an OR gate; the OR output goes through a NOT gate to Y." font-family="IBM Plex Mono,monospace" font-size="14" fill="none" stroke="currentColor" stroke-width="1.8">'+
+    '<text x="10" y="44" fill="currentColor" stroke="none">A = 1</text><text x="10" y="84" fill="currentColor" stroke="none">B = 1</text><text x="10" y="144" fill="currentColor" stroke="none">C = 0</text>'+
+    '<path d="M62 40H110M62 80H110"/><path d="M110 25H150A35 35 0 0 1 150 95H110Z"/><text x="120" y="66" fill="currentColor" stroke="none" font-size="12">AND</text>'+
+    '<path d="M185 60H230V95H262M62 140H240V125H262"/>'+
+    '<path d="M255 80Q285 110 255 140Q300 140 330 110Q300 80 255 80Z"/><text x="272" y="115" fill="currentColor" stroke="none" font-size="12">OR</text>'+
+    '<path d="M330 110H360"/><path d="M360 90L400 110L360 130Z"/><circle cx="406" cy="110" r="6"/><path d="M412 110H460"/>'+
+    '<text x="468" y="115" fill="currentColor" stroke="none">Y = ?</text></svg>';
+  var DIVIDER='<svg viewBox="0 0 360 230" width="360" role="img" aria-label="12 volt source across R1 of 10 kilo-ohms in series with R2 of 2 kilo-ohms; Vout is measured across R2." font-family="IBM Plex Mono,monospace" font-size="14" fill="none" stroke="currentColor" stroke-width="1.8">'+
+    '<path d="M60 30H180V50M180 110V130M180 190V210H60V150M60 110V30"/>'+
+    '<path d="M44 110H76M52 122H68M44 134H76M52 146H68" stroke-width="2"/><text x="6" y="134" fill="currentColor" stroke="none">12 V</text>'+
+    '<path d="M180 50L168 58L192 66L168 74L192 82L168 90L192 98L180 110"/><text x="204" y="85" fill="currentColor" stroke="none">R1 = 10 kΩ</text>'+
+    '<path d="M180 130L168 138L192 146L168 154L192 162L168 170L192 178L180 190"/><text x="204" y="165" fill="currentColor" stroke="none">R2 = 2 kΩ</text>'+
+    '<circle cx="180" cy="120" r="3.5" fill="currentColor"/><path d="M180 120H290" stroke-dasharray="4 4"/><text x="294" y="125" fill="currentColor" stroke="none">Vout</text></svg>';
+  var SP=[
+    {kind:"Logic · small design",q:"What is the output Y of this circuit?",fig:GATES,o:["Y = 0","Y = 1","Depends on the clock","Cannot be known"],a:0,e:"A AND B = 1. That OR C = 1. NOT 1 = 0, so Y = 0."},
+    {kind:"RTL · code review",q:"What hardware does this code create when synthesised?",code:"always @(*) begin\n  if (en)\n    q = d;\nend",o:["A D flip-flop","A latch","A 2:1 multiplexer","No hardware"],a:1,e:"There is no else branch, so q must hold its value when en is 0. Combinational code that holds a value infers a latch, a classic interview catch."},
+    {kind:"Timing · problem solving",q:"Clock period 2.0 ns. The data path takes 1.7 ns and the flip-flop needs 0.2 ns setup time. What is the setup slack?",o:["−0.1 ns, fails","+0.1 ns, meets timing","+0.3 ns, meets timing","−0.3 ns, fails"],a:1,e:"Slack = period − setup − path delay = 2.0 − 0.2 − 1.7 = +0.1 ns. Positive slack means the path meets timing."},
+    {kind:"Analog · small design",q:"What voltage does Vout read?",fig:DIVIDER,o:["10 V","6 V","2 V","1.2 V"],a:2,e:"Vout = 12 × 2 / (10 + 2) = 2 V. Dividers like this set reference and bias voltages inside chips."},
+    {kind:"Architecture · problem solving",q:"A writer sends a burst of 40 words at 100 MHz. A reader takes words at 50 MHz the whole time. What is the smallest FIFO depth that loses no data?",o:["10","20","40","80"],a:1,e:"The burst lasts 40 cycles at 100 MHz = 400 ns. In 400 ns the reader takes 20 words, so 20 must wait in the FIFO. This exact question appears in many first-round interviews."}
+  ];
+  var sb=document.getElementById("sprintbox"),si=-1,sscore=0,t0=0,tick=null,secs=0;
+  function fmt(s){var m=Math.floor(s/60),r=s%60;return m+":"+(r<10?"0":"")+r;}
+  function renderSprint(){
+    sb.innerHTML="";
+    if(si<0){
+      var prev=load("bicd-sprint");
+      sb.appendChild(el("span",{class:"eyebrow"},"5 problems · logic, RTL, timing, analog, architecture"));
+      sb.appendChild(el("p",{class:"q"},"Ready? The clock starts when you press Start."));
+      if(prev){var pp=prev.split("|");sb.appendChild(el("p",{class:"muted"},"Your saved attempt on this device: "+pp[0]+"/5 in "+fmt(+pp[1])+"."));}
+      var b=el("button",{class:"btn copper",type:"button"},prev?"Practise again":"Start the sprint");b.onclick=function(){si=0;sscore=0;t0=Date.now();clearInterval(tick);tick=setInterval(function(){var t=document.getElementById("stime");if(t)t.textContent=fmt(Math.floor((Date.now()-t0)/1000));},500);renderSprint();};
+      sb.appendChild(b);return;
+    }
+    if(si>=SP.length){
+      clearInterval(tick);secs=Math.round((Date.now()-t0)/1000);
+      var first=!load("bicd-sprint");if(first)save("bicd-sprint",sscore+"|"+secs);
+      var w=el("div",{class:"res"});w.appendChild(el("span",{class:"eyebrow"},"Silicon Sprint result"));
+      var h=el("h3",null,sscore+" / 5 in "+fmt(secs));h.style.fontSize="2.2rem";w.appendChild(h);
+      if(sscore>=4){w.appendChild(el("p",null,"You qualify for 12% off the launch price. Your code: SPRINT12"));document.getElementById("codebox").hidden=false;}
+      else w.appendChild(el("p",{class:"muted"},"So close. Each of these is explained step by step in the starter chapter and the full book. Read the explanations, then practise again."));
+      var used=load("bicd-sprint").split("|");
+      document.getElementById("sprintline").textContent="Silicon Sprint entry: "+used[0]+"/5 in "+fmt(+used[1])+(+used[0]>=4?" · qualifies for 12% off (SPRINT12)":"");
+      var row=el("div",{class:"ctas"});row.appendChild(el("a",{class:"btn",href:"#offer"},"Enter my score and get the free chapter"));
+      var r=el("button",{class:"btn ghost",type:"button"},"Practise again");r.onclick=function(){si=-1;renderSprint();};row.appendChild(r);
+      w.appendChild(row);if(!first)w.appendChild(el("p",{class:"small"},"Practice runs don't change your first, entered attempt."));
+      sb.appendChild(w);return;
+    }
+    var p=SP[si],hd=el("div",{class:"qhead"});
+    var lab=el("span",{class:"eyebrow"},"Problem "+(si+1)+" of 5 · "+p.kind);hd.appendChild(lab);
+    var tm=el("span",{class:"timer",id:"stime"},fmt(Math.floor((Date.now()-t0)/1000)));hd.appendChild(tm);
+    sb.appendChild(hd);sb.appendChild(dots(5,si));
+    var q=el("div",{class:"q"},p.q);q.style.marginTop="12px";sb.appendChild(q);
+    if(p.fig)sb.appendChild(svg(p.fig));if(p.code)sb.appendChild(codeblock(p.code));
+    var opts=el("div",{class:"opts grid2"}),btns=[];
+    p.o.forEach(function(txt,i){var b=el("button",{class:"opt",type:"button"},txt);btns.push(b);
+      b.onclick=function(){btns.forEach(function(x){x.disabled=true});if(i===p.a){sscore++;b.classList.add("right")}else{b.classList.add("wrong");btns[p.a].classList.add("right")}
+        sb.appendChild(el("p",{class:"explain"},(i===p.a?"Correct. ":"Not quite. ")+p.e));
+        var nr=el("div",{class:"nextrow"}),n=el("button",{class:"btn",type:"button"},si===4?"See my result":"Next problem");n.onclick=function(){si++;renderSprint();};nr.appendChild(n);sb.appendChild(nr);n.focus();};
+      opts.appendChild(b);});
+    sb.appendChild(opts);
+  }
+  renderSprint();
+  (function(){var prev=load("bicd-sprint");if(prev){var pp=prev.split("|");document.getElementById("sprintline").textContent="Silicon Sprint entry: "+pp[0]+"/5 in "+fmt(+pp[1])+(+pp[0]>=4?" · qualifies for 12% off (SPRINT12)":"");if(+pp[0]>=4)document.getElementById("codebox").hidden=false;}})();
+
+  // ---------- Quiz 2: Chip IQ ----------
+  var IQ=[
+    {q:"A 4-bit counter reads 15. What does it read after the next clock edge, with no reset?",o:["16","0","15","Undefined"],a:1,e:"Four bits hold 0 to 15, so 15 + 1 wraps to 0. Lab D1 checks this rollover."},
+    {q:"Five values go into a four-deep FIFO with no full check. What happens?",o:["The fifth write is ignored","The oldest value is overwritten","The FIFO grows to five","Nothing; it works"],a:1,e:"The write pointer wraps and overwrites the oldest entry. In Lab D2, 50 replaced 10."},
+    {q:"R = 1 kΩ and C = 100 nF. Where is the low-pass cutoff?",o:["159 Hz","1.59 kHz","15.9 kHz","1 kHz"],a:1,e:"1 / (2π × 1,000 × 100 nF) ≈ 1,591.5 Hz. The simulator measured 1,591.6 Hz."},
+    {q:"A gate drives four times more capacitance. Its delay…",o:["Falls","Stays the same","Rises","Becomes zero"],a:2,e:"More charge to move means a slower edge. In Lab A2, delay went from 30 ps to 80 ps."},
+    {q:"What does an ATMP plant like Micron's in Sanand do?",o:["Designs chips in Verilog","Prints transistors onto wafers","Assembles, tests, marks and packages chips","Sells chips to shops"],a:2,e:"ATMP stands for assembly, test, marking and packaging: the step after the fab."}
+  ];
+  var quiz=document.getElementById("quiz"),qi=0,score=0;
+  function renderQuiz(){
+    quiz.innerHTML="";
+    if(qi>=IQ.length){
+      var w=el("div",{class:"res"});w.appendChild(el("span",{class:"eyebrow"},"Your Chip IQ"));
+      var h=el("h3",null,score+" / "+IQ.length);h.style.fontSize="2.2rem";w.appendChild(h);
+      w.appendChild(el("p",{class:"muted"},score>=4?"Strong start. You're ready for Phase 1 of the 90-day plan.":score>=2?"Good base. The starter chapter fills the gaps in one evening.":"Perfect time to start. The starter chapter walks through each of these step by step."));
+      var row=el("div",{class:"ctas"});row.appendChild(el("a",{class:"btn",href:"#offer"},"Get the free chapter"));
+      var r=el("button",{class:"btn ghost",type:"button"},"Try again");r.onclick=function(){qi=0;score=0;renderQuiz();};row.appendChild(r);
+      w.appendChild(row);quiz.appendChild(w);return;
+    }
+    var q=IQ[qi],hd=el("div",{class:"qhead"});hd.appendChild(el("span",{class:"eyebrow"},"Question "+(qi+1)+" of "+IQ.length));hd.appendChild(dots(IQ.length,qi));
+    quiz.appendChild(hd);quiz.appendChild(el("div",{class:"q"},q.q));
+    var opts=el("div",{class:"opts"}),btns=[];
+    q.o.forEach(function(txt,i){var b=el("button",{class:"opt",type:"button"},txt);btns.push(b);
+      b.onclick=function(){btns.forEach(function(x){x.disabled=true});if(i===q.a){score++;b.classList.add("right")}else{b.classList.add("wrong");btns[q.a].classList.add("right")}
+        quiz.appendChild(el("p",{class:"explain"},(i===q.a?"Correct. ":"Not quite. ")+q.e));
+        var nr=el("div",{class:"nextrow"}),n=el("button",{class:"btn",type:"button"},qi===IQ.length-1?"See my score":"Next question");n.onclick=function(){qi++;renderQuiz();};nr.appendChild(n);quiz.appendChild(nr);n.focus();};
+      opts.appendChild(b);});
+    quiz.appendChild(opts);
+  }
+  renderQuiz();
+
+  document.getElementById("copybtn").addEventListener("click",function(){
+    var b=this,t=document.getElementById("codetxt");
+    function sel(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.textContent).then(function(){b.textContent="Copied"},sel)}else sel();
+  });
+
+  // ---------- Waitlist form ----------
+  var form=document.getElementById("wl"),err=document.getElementById("err");
+  form.addEventListener("submit",function(ev){
+    ev.preventDefault();err.hidden=true;
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var name=v("f-name"),email=v("f-email"),status=v("f-status"),ok=document.getElementById("f-ok").checked;
+    var msg=!name?"Enter your name.":!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)?"Enter a valid email address.":!status?"Choose what describes you.":!ok?"Tick the box to agree to emails about the book.":"";
+    if(msg){err.textContent=msg;err.hidden=false;return;}
+    var sp=(load("bicd-sprint")||"|").split("|");
+    var btn=document.getElementById("submit");btn.disabled=true;btn.textContent="Sending…";
+    var data=new URLSearchParams({name:name,email:email,whatsapp:v("f-wa"),status:status,org:v("f-org"),track:v("f-track"),sprint_score:sp[0],sprint_seconds:sp[1],source:"chip-design-landing",page:location.href});
+    function finish(){form.hidden=true;document.getElementById("done").hidden=false;document.getElementById("previewnote").hidden=LIVE;if(!LIVE)document.getElementById("labfiles").hidden=true;}
+    if(!LIVE){finish();return;}
+    try{if(window.fbq)fbq('track','Lead',{content_name:'Break Into Chip Design waitlist'});}catch(e){}
+    // Backup copy in the site's own waitlist store, then the Google Sheet (which also emails the lead).
+    var backup=fetch("/api/waitlist/join",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:email,name:name})}).catch(function(){});
+    var sheet=WAITLIST_ENDPOINT?fetch(WAITLIST_ENDPOINT,{method:"POST",mode:"no-cors",body:data}):Promise.resolve();
+    Promise.all([backup,sheet]).then(finish,function(){
+      btn.disabled=false;btn.textContent="Send me the free chapter";err.textContent="We couldn't reach the server. Check your connection and try again.";err.hidden=false;});
+  });
+})();
+</script>
+
+</body>
+</html>
