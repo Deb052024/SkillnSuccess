@@ -668,8 +668,10 @@ footer.site a{color:#fff}
   document.getElementById('wl').addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('wl-email').value.trim(),msg=document.getElementById('wl-msg');
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){msg.textContent='Please enter a valid email.';return;}
     msg.textContent='Saving…';
-    fetch('/api/waitlist/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,name:'rooted-rising'})})
-      .then(function(r){return r.json();}).then(function(){msg.textContent='You’re on the list. We’ll email you the starter chapter first.';if(window.fbq)fbq('track','Lead',{content_name:'Rooted and Rising',value:599,currency:'INR'});})
+    var q=new URLSearchParams(location.search),lead={email:em,name:'rooted-rising',page:location.pathname};
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){if(q.get(k))lead[k]=q.get(k);});
+    fetch('/api/waitlist/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)})
+      .then(function(r){if(!r.ok)throw new Error('save failed');return r.json();}).then(function(){msg.textContent='You’re on the list. We’ll email you the starter chapter first.';if(window.fbq)fbq('track','Lead',{content_name:'Rooted and Rising',value:599,currency:'INR'});})
       .catch(function(){msg.textContent='Something went wrong. Please try again.';});});
 })();
 </script>
