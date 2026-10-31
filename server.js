@@ -49,6 +49,10 @@ const DEALER_CHECKOUT =
   httpsOrEmpty(process.env.DEALER_PLAYBOOK_CHECKOUT_URL) ||
   'https://pandalicious3134.gumroad.com/l/ufhqkn?wanted=true';
 
+// Rooted & Rising (organic farm playbook, ₹599): set ROOTED_RISING_CHECKOUT_URL on Render to switch
+// the page from the waitlist form to a live Buy button.
+const ROOTED_RISING_CHECKOUT = httpsOrEmpty(process.env.ROOTED_RISING_CHECKOUT_URL);
+
 app.get('/api/config', (req, res) => {
   res.json({
     paymentsEnabled: process.env.ENABLE_PAYMENTS === 'true',
@@ -58,6 +62,9 @@ app.get('/api/config', (req, res) => {
         checkoutUrl: DEALER_CHECKOUT,
         // Separate PayPal button only shows if its own link is set.
         paypalUrl: httpsOrEmpty(process.env.DEALER_PLAYBOOK_PAYPAL_URL),
+      },
+      rootedRising: {
+        checkoutUrl: ROOTED_RISING_CHECKOUT,
       },
     },
   });
