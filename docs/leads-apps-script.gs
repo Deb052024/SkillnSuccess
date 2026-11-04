@@ -32,7 +32,7 @@ function doPost(e) {
     }
     var when = Utilities.formatDate(new Date(), 'Asia/Kolkata', 'yyyy-MM-dd HH:mm');
     sh.appendRow([when, email, clean_(data.product), clean_(data.page), clean_(data.utm_source),
-      clean_(data.utm_medium), clean_(data.utm_campaign), clean_(data.utm_content), 'New', '']);
+      clean_(data.utm_medium), clean_(data.utm_campaign), clean_(data.utm_content), 'New', clean_(data.notes, 3000)]);
   } finally {
     lock.releaseLock();
   }
@@ -42,6 +42,7 @@ function doPost(e) {
       'New sign-up on skillnsuccess.com\n\nEmail: ' + email +
       '\nProduct: ' + clean_(data.product) +
       '\nAd: ' + (clean_(data.utm_content) || '(not from an ad)') +
+      (data.notes ? '\n\nFeedback: ' + clean_(data.notes, 3000) : '') +
       '\n\nAll leads: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl());
   } catch (err) { /* daily mail quota reached; the row is still saved */ }
 
@@ -54,5 +55,5 @@ function testSetup() {
 }
 
 // Strips leading = + - @ so a crafted value can't run as a spreadsheet formula.
-function clean_(v) { return String(v || '').slice(0, 300).replace(/^[=+\-@]+/, ''); }
+function clean_(v, max) { return String(v || '').slice(0, max || 300).replace(/^[=+\-@]+/, ''); }
 function out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }

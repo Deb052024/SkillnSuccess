@@ -83,6 +83,52 @@ router.post('/join', async (req, res) => {
   res.json({ ok: true, waitlist_id, message: already ? 'Already on the waitlist' : 'Added to waitlist' });
 });
 
+// Early-reader feedback (e.g. /rooted-rising/feedback). Sent to the same Google Sheet:
+// the summary goes into the utm_* columns so it shows even with an older Apps Script,
+// and the full answers go into Notes (needs the updated script in docs/leads-apps-script.gs).
+router.post('/feedback', async (req, res) => {
+  const b = req.body || {};
+  const email = clip(b.email, 254).toLowerCase();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    return res.status(400).json({ error: 'a valid email is required' });
+  }
+  const product = clip(b.product, 60) || 'feedback';
+  const answers = {
+    useful: clip(b.q1, 600),
+    situation: clip(b.situation, 60),
+    acres: clip(b.acres, 60),
+    wants: clip(b.q3, 600),
+    unclear: clip(b.q4, 600),
+    language: clip(b.language, 20),
+    score: clip(b.score, 3),
+  };
+  if (!Object.values(answers).some(Boolean)) {
+    return res.status(400).json({ error: 'no answers' });
+  }
+  const notes = [
+    `Most useful: ${answers.useful || '-'}`,
+    `Situation: ${answers.situation || '-'}${answers.acres ? ` (${answers.acres} acres)` : ''}`,
+    `Wants covered: ${answers.wants || '-'}`,
+    `Unclear/missing: ${answers.unclear || '-'}`,
+    `Language: ${answers.language || '-'}`,
+    `Likely to use (1-10): ${answers.score || '-'}`,
+  ].join(' | ');
+
+  const ok = await forwardLead({
+    email,
+    product: `${product}-feedback`,
+    page: '/rooted-rising/feedback',
+    utm_source: 'feedback',
+    utm_medium: answers.score ? `score ${answers.score}/10` : '',
+    utm_campaign: [answers.situation, answers.acres && `${answers.acres} ac`].filter(Boolean).join(', '),
+    utm_content: answers.language,
+    notes,
+    created_at: new Date().toISOString(),
+  });
+  if (!ok) console.log('[feedback] not forwarded:', email, notes);
+  res.json({ ok: true });
+});
+
 // Backup export of what is in the local database: /api/waitlist/export?key=ADMIN_KEY
 router.get('/export', (req, res) => {
   if (!ADMIN_KEY || req.query.key !== ADMIN_KEY) return res.status(404).end();
