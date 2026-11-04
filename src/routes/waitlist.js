@@ -45,10 +45,12 @@ router.post('/join', async (req, res) => {
     return res.status(400).json({ error: 'a valid email is required' });
   }
 
+  const whatsapp = clip(body.whatsapp, 16).replace(/[^\d+]/g, '');
   const lead = {
     email,
     product,
     page: clip(body.page, 300),
+    notes: /^\+?\d{10,15}$/.test(whatsapp) ? `WhatsApp: ${whatsapp}` : '',
     utm_source: clip(body.utm_source, 100),
     utm_medium: clip(body.utm_medium, 100),
     utm_campaign: clip(body.utm_campaign, 100),

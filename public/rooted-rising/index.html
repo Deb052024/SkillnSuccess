@@ -309,7 +309,7 @@ footer.site a{color:#fff}
         <a class="btn btn-ghost" href="#map">Explore the farm map</a>
       </div>
       <div class="hero-meta">
-        <span class="chip">55–60 pages</span><span class="chip">English now · Hindi coming</span><span class="chip">Budget sheet + checklists</span>
+        <span class="chip">77 pages + workbook</span><span class="chip">14 video guides</span><span class="chip">English now · Hindi coming</span><span class="chip">Budget sheet + checklists</span>
       </div>
     </div>
     <div class="film-card">
@@ -474,6 +474,8 @@ footer.site a{color:#fff}
         <form id="wl2" class="wl js-wl" novalidate>
           <label for="wl2-email" style="font-size:14px;color:#C9DACD">Email</label>
           <input id="wl2-email" class="js-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <label for="wl2-wa" style="font-size:14px;color:#C9DACD">WhatsApp number <span style="opacity:.75">(optional — we'll send the starter chapter there too)</span></label>
+          <input id="wl2-wa" class="js-wa" type="tel" name="whatsapp" inputmode="tel" placeholder="98765 43210" autocomplete="tel" maxlength="16">
           <button class="btn btn-gold" type="submit">Reserve my copy</button>
           <p class="msg js-msg" role="status"></p>
         </form>
@@ -583,7 +585,7 @@ footer.site a{color:#fff}
         <span class="eyebrow" style="color:var(--turmeric)">Rooted &amp; Rising</span>
         <h2 style="margin-top:12px">Start this month, without quitting your job</h2>
         <ul>
-          <li>55–60 page practical playbook (PDF)</li>
+          <li>77-page practical playbook (PDF) with 14 video guides</li>
           <li>Hybrid investment and cash-flow sheet</li>
           <li>Returns and drone ROI calculators</li>
           <li>WhatsApp sales scripts and pricing sheet</li>
@@ -598,6 +600,8 @@ footer.site a{color:#fff}
           <p style="font-weight:700">Launching soon. Reserve your copy at ₹599 and get the free starter chapter first.</p>
           <label for="wl-email" style="font-size:14px;color:#C9DACD">Email</label>
           <input id="wl-email" class="js-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <label for="wl-wa" style="font-size:14px;color:#C9DACD">WhatsApp number <span style="opacity:.75">(optional — we'll send the starter chapter there too)</span></label>
+          <input id="wl-wa" class="js-wa" type="tel" name="whatsapp" inputmode="tel" placeholder="98765 43210" autocomplete="tel" maxlength="16">
           <button class="btn btn-gold" type="submit">Reserve my copy</button>
           <p class="msg js-msg" id="wl-msg" role="status"></p>
         </form>
@@ -699,12 +703,15 @@ footer.site a{color:#fff}
     var em=f.querySelector('.js-email').value.trim(),msg=f.querySelector('.js-msg'),btn=f.querySelector('button[type=submit]');
     if(joined){msg.textContent='You’re already on the list. Watch your inbox for the starter chapter.';return;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){msg.textContent='Please enter a valid email.';return;}
+    var waEl=f.querySelector('.js-wa'),wa=waEl?waEl.value.replace(/[\s\-()]/g,''):'';
+    if(wa&&!/^\+?\d{10,15}$/.test(wa)){msg.textContent='Please check your WhatsApp number, or leave it blank.';return;}
     msg.textContent='Saving…';btn.disabled=true;
     var q=new URLSearchParams(location.search),lead={email:em,name:'rooted-rising',page:location.pathname};
+    if(wa)lead.whatsapp=wa;
     ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){if(q.get(k))lead[k]=q.get(k);});
     fetch('/api/waitlist/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)})
       .then(function(r){if(!r.ok)throw new Error('save failed');return r.json();}).then(function(){joined=true;
-        document.querySelectorAll('.js-wl .js-msg').forEach(function(m){m.textContent='You’re on the list. We’ll email you the starter chapter first.';});
+        document.querySelectorAll('.js-wl .js-msg').forEach(function(m){m.textContent=wa?'You’re on the list. We’ll send the starter chapter by email and WhatsApp.':'You’re on the list. We’ll email you the starter chapter first.';});
         document.querySelectorAll('.js-wl button[type=submit]').forEach(function(x){x.disabled=true;x.textContent='Reserved ✓';});
         if(window.fbq)fbq('track','Lead',{content_name:'Rooted and Rising',value:599,currency:'INR'});})
       .catch(function(){msg.textContent='Something went wrong. Please try again.';btn.disabled=false;});});});
